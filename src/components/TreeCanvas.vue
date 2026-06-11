@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { computed } from 'vue';
-import { VueFlow } from '@vue-flow/core';
+import { computed, watch } from 'vue';
+import { VueFlow, useVueFlow } from '@vue-flow/core';
 import type { Edge, NodeMouseEvent } from '@vue-flow/core';
 import ResearchNodeCard from './ResearchNodeCard.vue';
 import { useDataStore } from '../stores/data';
@@ -10,6 +10,8 @@ import { useUiStore } from '../stores/ui';
 const data = useDataStore();
 const session = useSessionStore();
 const ui = useUiStore();
+
+const { fitView } = useVueFlow();
 
 const edges = computed<Edge[]>(() => {
   const hl = ui.highlightSet;
@@ -36,6 +38,15 @@ function onNodeMouseEnter({ node }: NodeMouseEvent): void {
 function onNodeMouseLeave(): void {
   ui.setHovered(null);
 }
+
+watch(
+  () => ui.flyToRequest,
+  (id) => {
+    if (!id) return;
+    fitView({ nodes: [id], padding: 4, duration: 600 });
+    ui.clearFlyTo();
+  },
+);
 </script>
 
 <template>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import SearchBox from './SearchBox.vue';
 import { useSessionStore } from '../stores/session';
 
 const session = useSessionStore();
@@ -8,7 +9,7 @@ const session = useSessionStore();
   <header class="topbar">
     <h1 class="title">Warzone 2100 — Дерево досліджень</h1>
     <div class="search-slot">
-      <!-- SearchBox зʼявиться тут у Task 14 -->
+      <SearchBox />
     </div>
     <label class="game-toggle" :class="{ on: session.gameMode }">
       <input
