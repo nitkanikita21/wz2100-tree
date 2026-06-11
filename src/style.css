@@ -1,0 +1,23 @@
+@import '@vue-flow/core/dist/style.css';
+@import '@vue-flow/core/dist/theme-default.css';
+
+:root {
+  --bg: #1a1b26;
+  --bg-panel: #16161e;
+  --bg-node: #1f2335;
+  --border: #3b4261;
+  --text: #c0caf5;
+  --text-dim: #565f89;
+  --edge: #3b4261;
+  --green: #9ece6a;  /* researched */
+  --yellow: #e0af68; /* available */
+  --blue: #7aa2f7;   /* planned / accent */
+  --red: #f7768e;    /* конфлікти, скидання */
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+}
