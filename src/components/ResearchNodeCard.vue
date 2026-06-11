@@ -27,7 +27,7 @@ const dimmed = computed(() => {
 
 <template>
   <div class="card" :class="[status, { planned, dimmed }]" :title="data.node.name">
-    <Handle type="target" :position="Position.Left" />
+    <Handle type="target" :position="Position.Top" />
     <img class="icon" :src="`/icons/${data.node.icon}`" :alt="data.node.branch" />
     <div class="body">
       <div class="name">{{ data.node.name }}</div>
@@ -39,7 +39,7 @@ const dimmed = computed(() => {
       :src="`/icons/${data.node.subIcon}`"
       alt=""
     />
-    <Handle type="source" :position="Position.Right" />
+    <Handle type="source" :position="Position.Bottom" />
   </div>
 </template>
 

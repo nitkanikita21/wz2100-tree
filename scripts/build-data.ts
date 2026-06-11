@@ -31,7 +31,7 @@ async function main(): Promise<void> {
     id: 'root',
     layoutOptions: {
       'elk.algorithm': 'layered',
-      'elk.direction': 'RIGHT',
+      'elk.direction': 'DOWN',
       'elk.layered.spacing.nodeNodeBetweenLayers': '120',
       'elk.spacing.nodeNode': '24',
     },
