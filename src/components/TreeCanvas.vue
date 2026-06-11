@@ -31,6 +31,10 @@ function onNodeClick({ node }: NodeMouseEvent): void {
   else ui.select(node.id);
 }
 
+function onPaneClick(): void {
+  ui.select(null);
+}
+
 function onNodeMouseEnter({ node }: NodeMouseEvent): void {
   ui.setHovered(node.id);
 }
@@ -59,6 +63,7 @@ watch(
       :max-zoom="2"
       fit-view-on-init
       @node-click="onNodeClick"
+      @pane-click="onPaneClick"
       @node-mouse-enter="onNodeMouseEnter"
       @node-mouse-leave="onNodeMouseLeave"
     >
