@@ -4,6 +4,7 @@ import type { Plan } from '../types';
 import { buildQueue, removeGoalFromPlan, canMove, moveItem } from '../lib/planner';
 import { load, save, clear } from '../lib/storage';
 import { useDataStore } from './data';
+import { useSessionStore } from './session';
 
 interface PlansPersist {
   plans: Plan[];
@@ -43,9 +44,10 @@ export const usePlansStore = defineStore('plans', () => {
     () => new Set(activePlan.value?.queue ?? []),
   );
 
-  // Тимчасово: до появи session store (Task 11) вважаємо, що нічого не досліджено.
+  // Прогрес береться з session store; виклик лінивий (усередині функції),
+  // тому циклічний імпорт plans ↔ session безпечний.
   function researchedSet(): Set<string> {
-    return new Set();
+    return useSessionStore().researched;
   }
 
   function createPlan(name: string): void {
