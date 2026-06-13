@@ -7,6 +7,7 @@ function makeNode(id: string, name: string): ResearchNode {
     id,
     name,
     points: 100,
+    cost: 3,
     branch: 'weapon',
     icon: 'image_res_weapontech.png',
     subIcon: null,
@@ -14,6 +15,8 @@ function makeNode(id: string, name: string): ResearchNode {
     prereqs: [],
     resultComponents: [],
     resultStructures: [],
+    models: [],
+    modelGroups: [],
     x: 0,
     y: 0,
   };

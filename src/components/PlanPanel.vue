@@ -31,6 +31,9 @@ const queueNodes = computed<ResearchNode[]>(() => {
     .filter((n): n is ResearchNode => n !== undefined);
 });
 
+const queuePoints = computed(() => queueNodes.value.reduce((sum, node) => sum + node.points, 0));
+const queueCost = computed(() => queueNodes.value.reduce((sum, node) => sum + node.cost, 0));
+
 function onSelectPlan(event: Event): void {
   const id = (event.target as HTMLSelectElement).value;
   if (id) plans.setActive(id);
@@ -108,6 +111,11 @@ function onResetStorage(): void {
   session.resetStorage();
 }
 
+function focusNode(id: string): void {
+  ui.select(id);
+  ui.flyTo(id);
+}
+
 function statusColor(id: string): string {
   const s = session.statuses.get(id) ?? 'locked';
   if (s === 'researched') return 'var(--green)';
@@ -146,6 +154,11 @@ function statusColor(id: string): string {
       </div>
 
       <ol class="queue">
+        <li v-if="queueNodes.length" class="queue-total">
+          <span>Разом</span>
+          <span>{{ queuePoints }} оч.</span>
+          <span>Ціна {{ queueCost }}</span>
+        </li>
         <li
           v-for="(n, idx) in queueNodes"
           :key="n.id"
@@ -157,8 +170,9 @@ function statusColor(id: string): string {
         >
           <span class="num">{{ idx + 1 }}.</span>
           <span class="dot" :style="{ background: statusColor(n.id) }"></span>
-          <button class="name" @click="ui.flyTo(n.id)">{{ n.name }}</button>
-          <span class="pts">{{ n.points }}</span>
+          <button class="name" @click="focusNode(n.id)">{{ n.name }}</button>
+          <span class="pts">{{ n.points }} оч.</span>
+          <span class="pts">Ціна {{ n.cost }}</span>
         </li>
       </ol>
     </template>
@@ -281,6 +295,15 @@ h2 {
 }
 .queue li.conflict {
   border-color: var(--red);
+}
+.queue-total {
+  justify-content: flex-end;
+  cursor: default;
+  color: var(--text-dim);
+  font-size: 11px;
+}
+.queue-total:hover {
+  background: transparent;
 }
 .num {
   color: var(--text-dim);

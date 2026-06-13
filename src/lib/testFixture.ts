@@ -6,11 +6,13 @@ export function makeNode(
   prereqs: string[] = [],
   points = 100,
   branch: Branch = 'weapon',
+  cost = Math.max(1, Math.round(points / 32)),
 ): ResearchNode {
   return {
     id,
     name: `Name of ${id}`,
     points,
+    cost,
     branch,
     icon: 'image_res_weapontech.png',
     subIcon: null,
@@ -18,6 +20,8 @@ export function makeNode(
     prereqs,
     resultComponents: [],
     resultStructures: [],
+    models: [],
+    modelGroups: [],
     x: 0,
     y: 0,
   };

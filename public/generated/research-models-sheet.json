@@ -1,0 +1,2211 @@
+{
+  "image": "research-models-sheet.png",
+  "iconWidth": 240,
+  "iconHeight": 184,
+  "displayWidth": 60,
+  "displayHeight": 46,
+  "columns": 20,
+  "rows": 10,
+  "items": {
+    "[[\"trlcmd1.pie\",\"gnlcmd1.pie\"]]": {
+      "index": 0,
+      "representativeId": "R-Comp-CommandTurret01",
+      "researchIds": [
+        "R-Comp-CommandTurret01",
+        "R-Comp-CommandTurret02"
+      ],
+      "x": 0,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"icamrhot.pie\"]]": {
+      "index": 1,
+      "representativeId": "R-Cyborg-Armor-Heat01",
+      "researchIds": [
+        "R-Cyborg-Armor-Heat01",
+        "R-Cyborg-Armor-Heat02",
+        "R-Cyborg-Armor-Heat03",
+        "R-Cyborg-Armor-Heat04",
+        "R-Cyborg-Armor-Heat05",
+        "R-Cyborg-Armor-Heat06",
+        "R-Cyborg-Armor-Heat07",
+        "R-Cyborg-Armor-Heat08",
+        "R-Cyborg-Armor-Heat09",
+        "R-Vehicle-Armor-Heat01",
+        "R-Vehicle-Armor-Heat02",
+        "R-Vehicle-Armor-Heat03",
+        "R-Vehicle-Armor-Heat04",
+        "R-Vehicle-Armor-Heat05",
+        "R-Vehicle-Armor-Heat06",
+        "R-Vehicle-Armor-Heat07",
+        "R-Vehicle-Armor-Heat08",
+        "R-Vehicle-Armor-Heat09"
+      ],
+      "x": 240,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmmslat.pie\",\"gnmmslat.pie\"]]": {
+      "index": 2,
+      "representativeId": "R-Cyborg-Hvywpn-A-T",
+      "researchIds": [
+        "R-Cyborg-Hvywpn-A-T",
+        "R-Wpn-Missile-Accuracy01",
+        "R-Wpn-Missile-Accuracy02",
+        "R-Wpn-Missile-Damage01",
+        "R-Wpn-Missile-Damage02",
+        "R-Wpn-Missile-Damage03",
+        "R-Wpn-Missile-ROF01",
+        "R-Wpn-Missile-ROF02",
+        "R-Wpn-Missile-ROF03",
+        "R-Wpn-Missile2A-T"
+      ],
+      "x": 480,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmvcan.pie\",\"gnmvcan.pie\"]]": {
+      "index": 3,
+      "representativeId": "R-Cyborg-Hvywpn-Acannon",
+      "researchIds": [
+        "R-Cyborg-Hvywpn-Acannon",
+        "R-Wpn-Cannon5"
+      ],
+      "x": 720,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlacan.pie\",\"gnlacan.pie\"]]": {
+      "index": 4,
+      "representativeId": "R-Cyborg-Hvywpn-HPV",
+      "researchIds": [
+        "R-Cyborg-Hvywpn-HPV",
+        "R-Wpn-Cannon4AMk1"
+      ],
+      "x": 960,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmcan.pie\",\"gnmcan.pie\"]]": {
+      "index": 5,
+      "representativeId": "R-Cyborg-Hvywpn-Mcannon",
+      "researchIds": [
+        "R-Cyborg-Hvywpn-Mcannon",
+        "R-Wpn-Cannon2Mk1"
+      ],
+      "x": 1200,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmlas.pie\",\"gnmlas.pie\"]]": {
+      "index": 6,
+      "representativeId": "R-Cyborg-Hvywpn-PulseLsr",
+      "researchIds": [
+        "R-Cyborg-Hvywpn-PulseLsr",
+        "R-Wpn-Energy-Accuracy01",
+        "R-Wpn-Energy-Damage01",
+        "R-Wpn-Energy-Damage02",
+        "R-Wpn-Energy-Damage03",
+        "R-Wpn-Energy-ROF01",
+        "R-Wpn-Energy-ROF02",
+        "R-Wpn-Energy-ROF03",
+        "R-Wpn-Laser02"
+      ],
+      "x": 1440,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmgss.pie\",\"gnmgss.pie\"]]": {
+      "index": 7,
+      "representativeId": "R-Cyborg-Hvywpn-RailGunner",
+      "researchIds": [
+        "R-Cyborg-Hvywpn-RailGunner",
+        "R-Wpn-RailGun02"
+      ],
+      "x": 1680,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmrcktb.pie\",\"gnmrcktb.pie\"]]": {
+      "index": 8,
+      "representativeId": "R-Cyborg-Hvywpn-TK",
+      "researchIds": [
+        "R-Cyborg-Hvywpn-TK",
+        "R-Wpn-Rocket07-Tank-Killer"
+      ],
+      "x": 1920,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"icmolql.pie\"]]": {
+      "index": 9,
+      "representativeId": "R-Cyborg-Metals01",
+      "researchIds": [
+        "R-Cyborg-Metals01",
+        "R-Cyborg-Metals02",
+        "R-Cyborg-Metals03",
+        "R-Cyborg-Metals04",
+        "R-Cyborg-Metals05",
+        "R-Cyborg-Metals06",
+        "R-Cyborg-Metals07",
+        "R-Cyborg-Metals08",
+        "R-Cyborg-Metals09",
+        "R-Struc-Materials01",
+        "R-Struc-Materials02",
+        "R-Struc-Materials03",
+        "R-Vehicle-Metals01",
+        "R-Vehicle-Metals02",
+        "R-Vehicle-Metals03",
+        "R-Vehicle-Metals04",
+        "R-Vehicle-Metals05",
+        "R-Vehicle-Metals06",
+        "R-Vehicle-Metals07",
+        "R-Vehicle-Metals08",
+        "R-Vehicle-Metals09"
+      ],
+      "x": 2160,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drcytran.pie\"]]": {
+      "index": 10,
+      "representativeId": "R-Cyborg-Transport",
+      "researchIds": [
+        "R-Cyborg-Transport"
+      ],
+      "x": 2400,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blaamnt2.pie\",\"trhmslsa.pie\",\"gnhaalas.pie\"]]": {
+      "index": 11,
+      "representativeId": "R-Defense-AA-Laser",
+      "researchIds": [
+        "R-Defense-AA-Laser"
+      ],
+      "x": 2640,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blaamnt2.pie\",\"trmair2.pie\",\"gnmair2.pie\"]]": {
+      "index": 12,
+      "representativeId": "R-Defense-AASite-QuadBof",
+      "researchIds": [
+        "R-Defense-AASite-QuadBof"
+      ],
+      "x": 2880,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blaamnt2.pie\",\"trhair.pie\",\"gnhair.pie\"]]": {
+      "index": 13,
+      "representativeId": "R-Defense-AASite-QuadBof02",
+      "researchIds": [
+        "R-Defense-AASite-QuadBof02"
+      ],
+      "x": 3120,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blaamnt1.pie\",\"trmair.pie\",\"gnlair.pie\"]]": {
+      "index": 14,
+      "representativeId": "R-Defense-AASite-QuadMg1",
+      "researchIds": [
+        "R-Defense-AASite-QuadMg1"
+      ],
+      "x": 3360,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blaamnt1.pie\",\"trhair.pie\",\"gnhair2.pie\"]]": {
+      "index": 15,
+      "representativeId": "R-Defense-AASite-QuadRotMg",
+      "researchIds": [
+        "R-Defense-AASite-QuadRotMg"
+      ],
+      "x": 3600,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blcanpil.pie\",\"trhvcan2.pie\",\"gnhvcan2.pie\"]]": {
+      "index": 16,
+      "representativeId": "R-Defense-Cannon6",
+      "researchIds": [
+        "R-Defense-Cannon6"
+      ],
+      "x": 3840,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trhemp.pie\",\"gnhemp.pie\"]]": {
+      "index": 17,
+      "representativeId": "R-Defense-EMPCannon",
+      "researchIds": [
+        "R-Defense-EMPCannon"
+      ],
+      "x": 4080,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blmrtpit.pie\",\"trhrmort.pie\",\"gnhmorte.pie\"]]": {
+      "index": 18,
+      "representativeId": "R-Defense-EMPMortar",
+      "researchIds": [
+        "R-Defense-EMPMortar"
+      ],
+      "x": 4320,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhowmnt.pie\",\"trlacan.pie\",\"gnlacan.pie\"]]": {
+      "index": 19,
+      "representativeId": "R-Defense-Emplacement-HPVcannon",
+      "researchIds": [
+        "R-Defense-Emplacement-HPVcannon"
+      ],
+      "x": 4560,
+      "y": 0,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trmmslat.pie\",\"gnmmslat.pie\"]]": {
+      "index": 20,
+      "representativeId": "R-Defense-GuardTower-ATMiss",
+      "researchIds": [
+        "R-Defense-GuardTower-ATMiss"
+      ],
+      "x": 0,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trlgss.pie\",\"gnlgss.pie\"]]": {
+      "index": 21,
+      "representativeId": "R-Defense-GuardTower-Rail1",
+      "researchIds": [
+        "R-Defense-GuardTower-Rail1"
+      ],
+      "x": 240,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blgateh.pie\"]]": {
+      "index": 22,
+      "representativeId": "R-Defense-HardcreteGate",
+      "researchIds": [
+        "R-Defense-HardcreteGate"
+      ],
+      "x": 480,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blwallh.pie\"]]": {
+      "index": 23,
+      "representativeId": "R-Defense-HardcreteWall",
+      "researchIds": [
+        "R-Defense-HardcreteWall",
+        "R-Defense-WallUpgrade01",
+        "R-Defense-WallUpgrade02",
+        "R-Defense-WallUpgrade03",
+        "R-Defense-WallUpgrade04",
+        "R-Defense-WallUpgrade05",
+        "R-Defense-WallUpgrade06",
+        "R-Defense-WallUpgrade07",
+        "R-Defense-WallUpgrade08",
+        "R-Defense-WallUpgrade09",
+        "R-Defense-WallUpgrade10",
+        "R-Defense-WallUpgrade11",
+        "R-Defense-WallUpgrade12"
+      ],
+      "x": 720,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"trhlas.pie\",\"gnhlas.pie\"]]": {
+      "index": 24,
+      "representativeId": "R-Defense-HeavyLas",
+      "researchIds": [
+        "R-Defense-HeavyLas"
+      ],
+      "x": 960,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"trhlas.pie\",\"gnhlas2.pie\"]]": {
+      "index": 25,
+      "representativeId": "R-Defense-ParticleGun",
+      "researchIds": [
+        "R-Defense-ParticleGun"
+      ],
+      "x": 1200,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blaamnt2.pie\",\"trhplasm.pie\",\"gnhplasm.pie\"]]": {
+      "index": 26,
+      "representativeId": "R-Defense-HeavyPlasmaLauncher",
+      "researchIds": [
+        "R-Defense-HeavyPlasmaLauncher"
+      ],
+      "x": 1440,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhowmnt.pie\",\"trmhowt.pie\",\"gnmhowt.pie\"]]": {
+      "index": 27,
+      "representativeId": "R-Defense-Howitzer",
+      "researchIds": [
+        "R-Defense-Howitzer"
+      ],
+      "x": 1680,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhowmnt.pie\",\"trmhowt.pie\",\"gnmhowti.pie\"]]": {
+      "index": 28,
+      "representativeId": "R-Defense-Howitzer-Incendiary",
+      "researchIds": [
+        "R-Defense-Howitzer-Incendiary"
+      ],
+      "x": 1920,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhowmnt.pie\",\"trmrcktb.pie\",\"gnmrcktb.pie\"]]": {
+      "index": 29,
+      "representativeId": "R-Defense-HvyA-Trocket",
+      "researchIds": [
+        "R-Defense-HvyA-Trocket"
+      ],
+      "x": 2160,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"trhmslab.pie\",\"gnhmslab.pie\"]]": {
+      "index": 30,
+      "representativeId": "R-Defense-HvyArtMissile",
+      "researchIds": [
+        "R-Defense-HvyArtMissile"
+      ],
+      "x": 2400,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blcanpil.pie\",\"trmflmr.pie\",\"gnmflmr.pie\"]]": {
+      "index": 31,
+      "representativeId": "R-Defense-HvyFlamer",
+      "researchIds": [
+        "R-Defense-HvyFlamer"
+      ],
+      "x": 2640,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhowmnt.pie\",\"trhhowt.pie\",\"gnhhowt.pie\"]]": {
+      "index": 32,
+      "representativeId": "R-Defense-HvyHowitzer",
+      "researchIds": [
+        "R-Defense-HvyHowitzer"
+      ],
+      "x": 2880,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blmrtpit.pie\",\"trhrmort.pie\",\"gnhmort2.pie\"]]": {
+      "index": 33,
+      "representativeId": "R-Defense-HvyMor",
+      "researchIds": [
+        "R-Defense-HvyMor"
+      ],
+      "x": 3120,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhowmnt.pie\",\"trhrckt.pie\",\"gnhrckt.pie\"]]": {
+      "index": 34,
+      "representativeId": "R-Defense-IDFRocket",
+      "researchIds": [
+        "R-Defense-IDFRocket"
+      ],
+      "x": 3360,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"trmrckt.pie\",\"gnmrckt.pie\"]]": {
+      "index": 35,
+      "representativeId": "R-Defense-MRL",
+      "researchIds": [
+        "R-Defense-MRL"
+      ],
+      "x": 3600,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"mrat2_mount.pie\",\"mrat2_gun.pie\"]]": {
+      "index": 36,
+      "representativeId": "R-Defense-MRLHvy",
+      "researchIds": [
+        "R-Defense-MRLHvy"
+      ],
+      "x": 3840,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"stwpfcan.pie\",\"trwpfgss.pie\",\"gnwpfgss.pie\"]]": {
+      "index": 37,
+      "representativeId": "R-Defense-MassDriver",
+      "researchIds": [
+        "R-Defense-MassDriver"
+      ],
+      "x": 4080,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"trmmslaa.pie\",\"gnmmslaa.pie\"]]": {
+      "index": 38,
+      "representativeId": "R-Defense-MdArtMissile",
+      "researchIds": [
+        "R-Defense-MdArtMissile"
+      ],
+      "x": 4320,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blmrtpit.pie\",\"trmmort.pie\",\"gnmmort.pie\"]]": {
+      "index": 39,
+      "representativeId": "R-Defense-MortarPit",
+      "researchIds": [
+        "R-Defense-MortarPit"
+      ],
+      "x": 4560,
+      "y": 184,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blmrtpit.pie\",\"trmmort.pie\",\"gnmmorti.pie\"]]": {
+      "index": 40,
+      "representativeId": "R-Defense-MortarPit-Incendiary",
+      "researchIds": [
+        "R-Defense-MortarPit-Incendiary"
+      ],
+      "x": 0,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blpilbox.pie\"]]": {
+      "index": 41,
+      "representativeId": "R-Defense-Pillbox01",
+      "researchIds": [
+        "R-Defense-Pillbox01",
+        "R-Defense-RotMG"
+      ],
+      "x": 240,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blcanpil.pie\",\"trlcan.pie\",\"gnlcan.pie\"]]": {
+      "index": 42,
+      "representativeId": "R-Defense-Pillbox04",
+      "researchIds": [
+        "R-Defense-Pillbox04"
+      ],
+      "x": 480,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blcanpil.pie\",\"trlflmr.pie\",\"gnlflmr.pie\"]]": {
+      "index": 43,
+      "representativeId": "R-Defense-Pillbox05",
+      "researchIds": [
+        "R-Defense-Pillbox05"
+      ],
+      "x": 720,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trmrckta.pie\",\"gnmrckta.pie\"]]": {
+      "index": 44,
+      "representativeId": "R-Defense-Pillbox06",
+      "researchIds": [
+        "R-Defense-Pillbox06"
+      ],
+      "x": 960,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"trhlas.pie\",\"gnhplsma.pie\"]]": {
+      "index": 45,
+      "representativeId": "R-Defense-PlasmaCannon",
+      "researchIds": [
+        "R-Defense-PlasmaCannon"
+      ],
+      "x": 1200,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blcanpil.pie\",\"trmflmrp.pie\",\"gnmflmrp.pie\"]]": {
+      "index": 46,
+      "representativeId": "R-Defense-PlasmiteFlamer",
+      "researchIds": [
+        "R-Defense-PlasmiteFlamer"
+      ],
+      "x": 1440,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"trmlas.pie\",\"gnmrlas.pie\"]]": {
+      "index": 47,
+      "representativeId": "R-Defense-PrisLas",
+      "researchIds": [
+        "R-Defense-PrisLas"
+      ],
+      "x": 1680,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trmlas.pie\",\"gnmlas.pie\"]]": {
+      "index": 48,
+      "representativeId": "R-Defense-PulseLas",
+      "researchIds": [
+        "R-Defense-PulseLas"
+      ],
+      "x": 1920,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"trmgss.pie\",\"gnmgss.pie\"]]": {
+      "index": 49,
+      "representativeId": "R-Defense-Rail2",
+      "researchIds": [
+        "R-Defense-Rail2"
+      ],
+      "x": 2160,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhardpt.pie\",\"trhgss.pie\",\"gnhgss.pie\"]]": {
+      "index": 50,
+      "representativeId": "R-Defense-Rail3",
+      "researchIds": [
+        "R-Defense-Rail3"
+      ],
+      "x": 2400,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blhowmnt.pie\",\"trhhow2.pie\",\"gnhhowt2.pie\"]]": {
+      "index": 51,
+      "representativeId": "R-Defense-RotHow",
+      "researchIds": [
+        "R-Defense-RotHow"
+      ],
+      "x": 2640,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blmrtpit.pie\",\"trhrmort.pie\",\"gnhmort.pie\"]]": {
+      "index": 52,
+      "representativeId": "R-Defense-RotMor",
+      "researchIds": [
+        "R-Defense-RotMor"
+      ],
+      "x": 2880,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blaamnt1.pie\",\"trmmslsa.pie\",\"gnmmslsa.pie\"]]": {
+      "index": 53,
+      "representativeId": "R-Defense-SamSite1",
+      "researchIds": [
+        "R-Defense-SamSite1"
+      ],
+      "x": 3120,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blaamnt2.pie\",\"trhmslsa.pie\",\"gnhmslsa.pie\"]]": {
+      "index": 54,
+      "representativeId": "R-Defense-SamSite2",
+      "researchIds": [
+        "R-Defense-SamSite2"
+      ],
+      "x": 3360,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blaamnt1.pie\",\"trmair3.pie\",\"gnmair3.pie\"]]": {
+      "index": 55,
+      "representativeId": "R-Defense-Sunburst",
+      "researchIds": [
+        "R-Defense-Sunburst"
+      ],
+      "x": 3600,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"stwpfcan.pie\",\"trwpfcan.pie\",\"gnwpfcan.pie\"]]": {
+      "index": 56,
+      "representativeId": "R-Defense-Super-Cannon",
+      "researchIds": [
+        "R-Defense-Super-Cannon"
+      ],
+      "x": 3840,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"stwpfcan.pie\",\"trwpfmsl.pie\",\"gnwpfmsl.pie\"]]": {
+      "index": 57,
+      "representativeId": "R-Defense-Super-Missile",
+      "researchIds": [
+        "R-Defense-Super-Missile"
+      ],
+      "x": 4080,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"stwpfcan.pie\",\"trwpfrkt.pie\",\"gnwpfrkt.pie\"]]": {
+      "index": 58,
+      "representativeId": "R-Defense-Super-Rocket",
+      "researchIds": [
+        "R-Defense-Super-Rocket"
+      ],
+      "x": 4320,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"mitrap2.pie\"]]": {
+      "index": 59,
+      "representativeId": "R-Defense-TankTrap01",
+      "researchIds": [
+        "R-Defense-TankTrap01"
+      ],
+      "x": 4560,
+      "y": 368,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardm.pie\",\"trmmg.pie\",\"gnmmg1.pie\"]]": {
+      "index": 60,
+      "representativeId": "R-Defense-Tower01",
+      "researchIds": [
+        "R-Defense-Tower01"
+      ],
+      "x": 0,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trlrcktp.pie\",\"gnlrcktp.pie\"]]": {
+      "index": 61,
+      "representativeId": "R-Defense-Tower06",
+      "researchIds": [
+        "R-Defense-Tower06"
+      ],
+      "x": 240,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmmg.pie\",\"gnmmg2.pie\"]]": {
+      "index": 62,
+      "representativeId": "R-Defense-Wall-RotMg",
+      "researchIds": [
+        "R-Defense-Wall-RotMg"
+      ],
+      "x": 480,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmvcan.pie\",\"gnmvcan.pie\"]]": {
+      "index": 63,
+      "representativeId": "R-Defense-Wall-VulcanCan",
+      "researchIds": [
+        "R-Defense-Wall-VulcanCan"
+      ],
+      "x": 720,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmmslat.pie\",\"gnmmslat.pie\"]]": {
+      "index": 64,
+      "representativeId": "R-Defense-WallTower-A-Tmiss",
+      "researchIds": [
+        "R-Defense-WallTower-A-Tmiss"
+      ],
+      "x": 960,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmair2.pie\",\"gnmair2.pie\"]]": {
+      "index": 65,
+      "representativeId": "R-Defense-WallTower-DoubleAAgun",
+      "researchIds": [
+        "R-Defense-WallTower-DoubleAAgun"
+      ],
+      "x": 1200,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trhair.pie\",\"gnhair.pie\"]]": {
+      "index": 66,
+      "representativeId": "R-Defense-WallTower-DoubleAAgun02",
+      "researchIds": [
+        "R-Defense-WallTower-DoubleAAgun02"
+      ],
+      "x": 1440,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trlacan.pie\",\"gnlacan.pie\"]]": {
+      "index": 67,
+      "representativeId": "R-Defense-WallTower-HPVcannon",
+      "researchIds": [
+        "R-Defense-WallTower-HPVcannon"
+      ],
+      "x": 1680,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmrcktb.pie\",\"gnmrcktb.pie\"]]": {
+      "index": 68,
+      "representativeId": "R-Defense-WallTower-HvyA-Trocket",
+      "researchIds": [
+        "R-Defense-WallTower-HvyA-Trocket"
+      ],
+      "x": 1920,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmlas.pie\",\"gnmlas.pie\"]]": {
+      "index": 69,
+      "representativeId": "R-Defense-WallTower-PulseLas",
+      "researchIds": [
+        "R-Defense-WallTower-PulseLas"
+      ],
+      "x": 2160,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trhair.pie\",\"gnhair2.pie\"]]": {
+      "index": 70,
+      "representativeId": "R-Defense-WallTower-QuadRotAA",
+      "researchIds": [
+        "R-Defense-WallTower-QuadRotAA"
+      ],
+      "x": 2400,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmgss.pie\",\"gnmgss.pie\"]]": {
+      "index": 71,
+      "representativeId": "R-Defense-WallTower-Rail2",
+      "researchIds": [
+        "R-Defense-WallTower-Rail2"
+      ],
+      "x": 2640,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trhgss.pie\",\"gnhgss.pie\"]]": {
+      "index": 72,
+      "representativeId": "R-Defense-WallTower-Rail3",
+      "researchIds": [
+        "R-Defense-WallTower-Rail3"
+      ],
+      "x": 2880,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trhmslsa.pie\",\"gnhmslsa.pie\"]]": {
+      "index": 73,
+      "representativeId": "R-Defense-WallTower-SamHvy",
+      "researchIds": [
+        "R-Defense-WallTower-SamHvy"
+      ],
+      "x": 3120,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmmslsa.pie\",\"gnmmslsa.pie\"]]": {
+      "index": 74,
+      "representativeId": "R-Defense-WallTower-SamSite",
+      "researchIds": [
+        "R-Defense-WallTower-SamSite"
+      ],
+      "x": 3360,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trhmg.pie\",\"gnhmg1.pie\"]]": {
+      "index": 75,
+      "representativeId": "R-Defense-WallTower-TwinAGun",
+      "researchIds": [
+        "R-Defense-WallTower-TwinAGun"
+      ],
+      "x": 3600,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmmg.pie\",\"gnmmg1.pie\"]]": {
+      "index": 76,
+      "representativeId": "R-Defense-WallTower01",
+      "researchIds": [
+        "R-Defense-WallTower01"
+      ],
+      "x": 3840,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trlcan.pie\",\"gnlcan.pie\"]]": {
+      "index": 77,
+      "representativeId": "R-Defense-WallTower02",
+      "researchIds": [
+        "R-Defense-WallTower02"
+      ],
+      "x": 4080,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmcan.pie\",\"gnmcan.pie\"]]": {
+      "index": 78,
+      "representativeId": "R-Defense-WallTower03",
+      "researchIds": [
+        "R-Defense-WallTower03"
+      ],
+      "x": 4320,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trhcan.pie\",\"gnhcan.pie\"]]": {
+      "index": 79,
+      "representativeId": "R-Defense-WallTower04",
+      "researchIds": [
+        "R-Defense-WallTower04"
+      ],
+      "x": 4560,
+      "y": 552,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguard1.pie\",\"trmrckta.pie\",\"gnmrckta.pie\"]]": {
+      "index": 80,
+      "representativeId": "R-Defense-WallTower06",
+      "researchIds": [
+        "R-Defense-WallTower06"
+      ],
+      "x": 0,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blbdrdcm.pie\",\"bldrdcm0.pie\"]]": {
+      "index": 81,
+      "representativeId": "R-Struc-CommandRelay",
+      "researchIds": [
+        "R-Struc-CommandRelay"
+      ],
+      "x": 240,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blbcfact.pie\",\"blcfact1.pie\"]]": {
+      "index": 82,
+      "representativeId": "R-Struc-Factory-Cyborg",
+      "researchIds": [
+        "R-Struc-Factory-Cyborg"
+      ],
+      "x": 480,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blfact1.pie\"]]": {
+      "index": 83,
+      "representativeId": "R-Struc-Factory-Module",
+      "researchIds": [
+        "R-Struc-Factory-Module",
+        "R-Struc-Factory-Upgrade01",
+        "R-Struc-Factory-Upgrade04",
+        "R-Struc-Factory-Upgrade07",
+        "R-Struc-Factory-Upgrade09"
+      ],
+      "x": 720,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blpower4.pie\"]]": {
+      "index": 84,
+      "representativeId": "R-Struc-Power-Upgrade01",
+      "researchIds": [
+        "R-Struc-Power-Upgrade01",
+        "R-Struc-Power-Upgrade01b",
+        "R-Struc-Power-Upgrade01c",
+        "R-Struc-Power-Upgrade02",
+        "R-Struc-Power-Upgrade03",
+        "R-Struc-Power-Upgrade03a",
+        "R-Struc-PowerModuleMk1"
+      ],
+      "x": 960,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blbgen.pie\",\"blrpair3.pie\",\"gnhrepar.pie\"]]": {
+      "index": 85,
+      "representativeId": "R-Struc-RepairFacility",
+      "researchIds": [
+        "R-Struc-RepairFacility",
+        "R-Struc-RprFac-Upgrade01",
+        "R-Struc-RprFac-Upgrade04",
+        "R-Struc-RprFac-Upgrade06"
+      ],
+      "x": 1200,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blresch4.pie\"]]": {
+      "index": 86,
+      "representativeId": "R-Struc-Research-Module",
+      "researchIds": [
+        "R-Struc-Research-Module",
+        "R-Struc-Research-Upgrade01",
+        "R-Struc-Research-Upgrade02",
+        "R-Struc-Research-Upgrade03",
+        "R-Struc-Research-Upgrade04",
+        "R-Struc-Research-Upgrade05",
+        "R-Struc-Research-Upgrade06",
+        "R-Struc-Research-Upgrade07",
+        "R-Struc-Research-Upgrade08",
+        "R-Struc-Research-Upgrade09"
+      ],
+      "x": 1440,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blbfact.pie\",\"blvfact0.pie\"]]": {
+      "index": 87,
+      "representativeId": "R-Struc-VTOLFactory",
+      "researchIds": [
+        "R-Struc-VTOLFactory"
+      ],
+      "x": 1680,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blbgen.pie\",\"blvtolpd.pie\"]]": {
+      "index": 88,
+      "representativeId": "R-Struc-VTOLPad",
+      "researchIds": [
+        "R-Struc-VTOLPad",
+        "R-Struc-VTOLPad-Upgrade01",
+        "R-Struc-VTOLPad-Upgrade02",
+        "R-Struc-VTOLPad-Upgrade03",
+        "R-Struc-VTOLPad-Upgrade04",
+        "R-Struc-VTOLPad-Upgrade05",
+        "R-Struc-VTOLPad-Upgrade06"
+      ],
+      "x": 1920,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drtrans.pie\"]]": {
+      "index": 89,
+      "representativeId": "R-SuperTransport",
+      "researchIds": [
+        "R-SuperTransport"
+      ],
+      "x": 2160,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"iccccons.pie\"]]": {
+      "index": 90,
+      "representativeId": "R-Sys-Autorepair-General",
+      "researchIds": [
+        "R-Sys-Autorepair-General",
+        "R-Sys-Resistance-Circuits"
+      ],
+      "x": 2400,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trmsnsr2.pie\",\"gnmecm2.pie\"]]": {
+      "index": 91,
+      "representativeId": "R-Sys-CBSensor-Tower01",
+      "researchIds": [
+        "R-Sys-CBSensor-Tower01"
+      ],
+      "x": 2640,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmsnsr2.pie\",\"gnmecm2.pie\"]]": {
+      "index": 92,
+      "representativeId": "R-Sys-CBSensor-Turret01",
+      "researchIds": [
+        "R-Sys-CBSensor-Turret01"
+      ],
+      "x": 2880,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlcon.pie\"]]": {
+      "index": 93,
+      "representativeId": "R-Sys-Engineering01",
+      "researchIds": [
+        "R-Sys-Engineering01",
+        "R-Sys-Engineering02",
+        "R-Sys-Engineering03",
+        "R-Sys-Spade1Mk1"
+      ],
+      "x": 3120,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmecm1.pie\",\"gnmrepar.pie\"]]": {
+      "index": 94,
+      "representativeId": "R-Sys-MobileRepairTurret01",
+      "researchIds": [
+        "R-Sys-MobileRepairTurret01"
+      ],
+      "x": 3360,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmecm1.pie\",\"gnmrepr2.pie\"]]": {
+      "index": 95,
+      "representativeId": "R-Sys-MobileRepairTurretHvy",
+      "researchIds": [
+        "R-Sys-MobileRepairTurretHvy"
+      ],
+      "x": 3600,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmecm2.pie\",\"radarsensor.pie\"]]": {
+      "index": 96,
+      "representativeId": "R-Sys-RadarDetector01",
+      "researchIds": [
+        "R-Sys-RadarDetector01"
+      ],
+      "x": 3840,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardm.pie\",\"trlsnsr1.pie\",\"gnlsnsr1.pie\"]]": {
+      "index": 97,
+      "representativeId": "R-Sys-Sensor-Tower01",
+      "researchIds": [
+        "R-Sys-Sensor-Tower01"
+      ],
+      "x": 4080,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trmsnsr2.pie\",\"gnlsnsr1.pie\"]]": {
+      "index": 98,
+      "representativeId": "R-Sys-Sensor-Tower02",
+      "researchIds": [
+        "R-Sys-Sensor-Tower02"
+      ],
+      "x": 4320,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlsnsr1.pie\",\"gnlsnsr1.pie\"]]": {
+      "index": 99,
+      "representativeId": "R-Sys-Sensor-Turret01",
+      "researchIds": [
+        "R-Sys-Sensor-Turret01"
+      ],
+      "x": 4560,
+      "y": 736,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"miupbase.pie\",\"trlsnsr1.pie\",\"miupdish.pie\"]]": {
+      "index": 100,
+      "representativeId": "R-Sys-Sensor-UpLink",
+      "researchIds": [
+        "R-Sys-Sensor-UpLink"
+      ],
+      "x": 0,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"gnlsnsr1.pie\"]]": {
+      "index": 101,
+      "representativeId": "R-Sys-Sensor-Upgrade01",
+      "researchIds": [
+        "R-Sys-Sensor-Upgrade01",
+        "R-Sys-Sensor-Upgrade02",
+        "R-Sys-Sensor-Upgrade03"
+      ],
+      "x": 240,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhsnsr3.pie\",\"gnhsnsr4.pie\"]]": {
+      "index": 102,
+      "representativeId": "R-Sys-Sensor-WS",
+      "researchIds": [
+        "R-Sys-Sensor-WS"
+      ],
+      "x": 480,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trhsnsr3.pie\",\"gnhsnsr4.pie\"]]": {
+      "index": 103,
+      "representativeId": "R-Sys-Sensor-WSTower",
+      "researchIds": [
+        "R-Sys-Sensor-WSTower"
+      ],
+      "x": 720,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"icmolql.pie\"],[\"blguardr.pie\",\"trhecm3.pie\",\"gnhecm3.pie\"]]": {
+      "index": 104,
+      "representativeId": "R-Sys-SpyTower",
+      "researchIds": [
+        "R-Sys-SpyTower"
+      ],
+      "x": 960,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"icmolql.pie\"],[\"trhecm3.pie\",\"gnhecm3.pie\"]]": {
+      "index": 105,
+      "representativeId": "R-Sys-SpyTurret",
+      "researchIds": [
+        "R-Sys-SpyTurret"
+      ],
+      "x": 1200,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trhsnsr3.pie\",\"gnhsnsr3.pie\"]]": {
+      "index": 106,
+      "representativeId": "R-Sys-VTOLCBS-Tower01",
+      "researchIds": [
+        "R-Sys-VTOLCBS-Tower01"
+      ],
+      "x": 1440,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhsnsr3.pie\",\"gnhsnsr3.pie\"]]": {
+      "index": 107,
+      "representativeId": "R-Sys-VTOLCBS-Turret01",
+      "researchIds": [
+        "R-Sys-VTOLCBS-Turret01"
+      ],
+      "x": 1680,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"blguardr.pie\",\"trmecm2.pie\",\"gnmsnsr2.pie\"]]": {
+      "index": 108,
+      "representativeId": "R-Sys-VTOLStrike-Tower01",
+      "researchIds": [
+        "R-Sys-VTOLStrike-Tower01"
+      ],
+      "x": 1920,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlsnsr1.pie\",\"gnmsnsr2.pie\"]]": {
+      "index": 109,
+      "representativeId": "R-Sys-VTOLStrike-Turret01",
+      "researchIds": [
+        "R-Sys-VTOLStrike-Turret01"
+      ],
+      "x": 2160,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drlbod01.pie\"]]": {
+      "index": 110,
+      "representativeId": "R-Vehicle-Body01",
+      "researchIds": [
+        "R-Vehicle-Body01"
+      ],
+      "x": 2400,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drlbod02.pie\"]]": {
+      "index": 111,
+      "representativeId": "R-Vehicle-Body02",
+      "researchIds": [
+        "R-Vehicle-Body02"
+      ],
+      "x": 2640,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drlbod03.pie\"]]": {
+      "index": 112,
+      "representativeId": "R-Vehicle-Body03",
+      "researchIds": [
+        "R-Vehicle-Body03"
+      ],
+      "x": 2880,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drlbod04.pie\"]]": {
+      "index": 113,
+      "representativeId": "R-Vehicle-Body04",
+      "researchIds": [
+        "R-Vehicle-Body04"
+      ],
+      "x": 3120,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drmbod05.pie\"]]": {
+      "index": 114,
+      "representativeId": "R-Vehicle-Body05",
+      "researchIds": [
+        "R-Vehicle-Body05"
+      ],
+      "x": 3360,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drmbod06.pie\"]]": {
+      "index": 115,
+      "representativeId": "R-Vehicle-Body06",
+      "researchIds": [
+        "R-Vehicle-Body06"
+      ],
+      "x": 3600,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drmbod07.pie\"]]": {
+      "index": 116,
+      "representativeId": "R-Vehicle-Body07",
+      "researchIds": [
+        "R-Vehicle-Body07"
+      ],
+      "x": 3840,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drmbod08.pie\"]]": {
+      "index": 117,
+      "representativeId": "R-Vehicle-Body08",
+      "researchIds": [
+        "R-Vehicle-Body08"
+      ],
+      "x": 4080,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drhbod09.pie\"]]": {
+      "index": 118,
+      "representativeId": "R-Vehicle-Body09",
+      "researchIds": [
+        "R-Vehicle-Body09"
+      ],
+      "x": 4320,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drhbod10.pie\"]]": {
+      "index": 119,
+      "representativeId": "R-Vehicle-Body10",
+      "researchIds": [
+        "R-Vehicle-Body10"
+      ],
+      "x": 4560,
+      "y": 920,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drhbod11.pie\"]]": {
+      "index": 120,
+      "representativeId": "R-Vehicle-Body11",
+      "researchIds": [
+        "R-Vehicle-Body11"
+      ],
+      "x": 0,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drhbod12.pie\"]]": {
+      "index": 121,
+      "representativeId": "R-Vehicle-Body12",
+      "researchIds": [
+        "R-Vehicle-Body12"
+      ],
+      "x": 240,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drmbod13.pie\"]]": {
+      "index": 122,
+      "representativeId": "R-Vehicle-Body13",
+      "researchIds": [
+        "R-Vehicle-Body13"
+      ],
+      "x": 480,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"drhbod14.pie\"]]": {
+      "index": 123,
+      "representativeId": "R-Vehicle-Body14",
+      "researchIds": [
+        "R-Vehicle-Body14"
+      ],
+      "x": 720,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"iceng.pie\"]]": {
+      "index": 124,
+      "representativeId": "R-Vehicle-Engine01",
+      "researchIds": [
+        "R-Vehicle-Engine01",
+        "R-Vehicle-Engine02",
+        "R-Vehicle-Engine03",
+        "R-Vehicle-Engine04",
+        "R-Vehicle-Engine05",
+        "R-Vehicle-Engine06",
+        "R-Vehicle-Engine07",
+        "R-Vehicle-Engine08",
+        "R-Vehicle-Engine09"
+      ],
+      "x": 960,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"prlhtr1.pie\"]]": {
+      "index": 125,
+      "representativeId": "R-Vehicle-Prop-Halftracks",
+      "researchIds": [
+        "R-Vehicle-Prop-Halftracks"
+      ],
+      "x": 1200,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"prlhov1.pie\"]]": {
+      "index": 126,
+      "representativeId": "R-Vehicle-Prop-Hover",
+      "researchIds": [
+        "R-Vehicle-Prop-Hover"
+      ],
+      "x": 1440,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"prltrk1.pie\"]]": {
+      "index": 127,
+      "representativeId": "R-Vehicle-Prop-Tracks",
+      "researchIds": [
+        "R-Vehicle-Prop-Tracks"
+      ],
+      "x": 1680,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"dpvtol.pie\"]]": {
+      "index": 128,
+      "representativeId": "R-Vehicle-Prop-VTOL",
+      "researchIds": [
+        "R-Vehicle-Prop-VTOL"
+      ],
+      "x": 1920,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"prlwhl1.pie\"]]": {
+      "index": 129,
+      "representativeId": "R-Vehicle-Prop-Wheels",
+      "researchIds": [
+        "R-Vehicle-Prop-Wheels"
+      ],
+      "x": 2160,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmair2.pie\",\"gnmair2.pie\"]]": {
+      "index": 130,
+      "representativeId": "R-Wpn-AAGun01",
+      "researchIds": [
+        "R-Wpn-AAGun01"
+      ],
+      "x": 2400,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhair.pie\",\"gnhair.pie\"]]": {
+      "index": 131,
+      "representativeId": "R-Wpn-AAGun02",
+      "researchIds": [
+        "R-Wpn-AAGun02"
+      ],
+      "x": 2640,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmair.pie\",\"gnlair.pie\"]]": {
+      "index": 132,
+      "representativeId": "R-Wpn-AAGun03",
+      "researchIds": [
+        "R-Wpn-AAGun03"
+      ],
+      "x": 2880,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhair.pie\",\"gnhair2.pie\"]]": {
+      "index": 133,
+      "representativeId": "R-Wpn-AAGun04",
+      "researchIds": [
+        "R-Wpn-AAGun04"
+      ],
+      "x": 3120,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhmslsa.pie\",\"gnhaalas.pie\"]]": {
+      "index": 134,
+      "representativeId": "R-Wpn-AALaser",
+      "researchIds": [
+        "R-Wpn-AALaser"
+      ],
+      "x": 3360,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlvtlhe.pie\"]]": {
+      "index": 135,
+      "representativeId": "R-Wpn-Bomb-Damage01",
+      "researchIds": [
+        "R-Wpn-Bomb-Damage01",
+        "R-Wpn-Bomb-Damage02",
+        "R-Wpn-Bomb-Damage03",
+        "R-Wpn-Bomb01"
+      ],
+      "x": 3600,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmvtlhe.pie\"]]": {
+      "index": 136,
+      "representativeId": "R-Wpn-Bomb02",
+      "researchIds": [
+        "R-Wpn-Bomb02"
+      ],
+      "x": 3840,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlvtlin.pie\"]]": {
+      "index": 137,
+      "representativeId": "R-Wpn-Bomb03",
+      "researchIds": [
+        "R-Wpn-Bomb03"
+      ],
+      "x": 4080,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmvtlin.pie\"]]": {
+      "index": 138,
+      "representativeId": "R-Wpn-Bomb04",
+      "researchIds": [
+        "R-Wpn-Bomb04"
+      ],
+      "x": 4320,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmvtlin.pie\"],[\"trmvtlpl.pie\"]]": {
+      "index": 139,
+      "representativeId": "R-Wpn-Bomb05",
+      "researchIds": [
+        "R-Wpn-Bomb05"
+      ],
+      "x": 4560,
+      "y": 1104,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmvtlin.pie\"],[\"trmvtlem.pie\"]]": {
+      "index": 140,
+      "representativeId": "R-Wpn-Bomb06",
+      "researchIds": [
+        "R-Wpn-Bomb06"
+      ],
+      "x": 0,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlcan.pie\",\"gnlcan.pie\"]]": {
+      "index": 141,
+      "representativeId": "R-Wpn-Cannon-Accuracy01",
+      "researchIds": [
+        "R-Wpn-Cannon-Accuracy01",
+        "R-Wpn-Cannon-Accuracy02",
+        "R-Wpn-Cannon-Damage01",
+        "R-Wpn-Cannon-Damage02",
+        "R-Wpn-Cannon-Damage03",
+        "R-Wpn-Cannon-Damage04",
+        "R-Wpn-Cannon-Damage05",
+        "R-Wpn-Cannon-Damage06",
+        "R-Wpn-Cannon-Damage07",
+        "R-Wpn-Cannon-Damage08",
+        "R-Wpn-Cannon-Damage09",
+        "R-Wpn-Cannon-ROF01",
+        "R-Wpn-Cannon-ROF02",
+        "R-Wpn-Cannon-ROF03",
+        "R-Wpn-Cannon-ROF04",
+        "R-Wpn-Cannon-ROF05",
+        "R-Wpn-Cannon-ROF06",
+        "R-Wpn-Cannon1Mk1"
+      ],
+      "x": 240,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhcan.pie\",\"gnhcan.pie\"]]": {
+      "index": 142,
+      "representativeId": "R-Wpn-Cannon3Mk1",
+      "researchIds": [
+        "R-Wpn-Cannon3Mk1"
+      ],
+      "x": 480,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhvcan2.pie\",\"gnhvcan2.pie\"]]": {
+      "index": 143,
+      "representativeId": "R-Wpn-Cannon6TwinAslt",
+      "researchIds": [
+        "R-Wpn-Cannon6TwinAslt"
+      ],
+      "x": 720,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhemp.pie\",\"gnhemp.pie\"]]": {
+      "index": 144,
+      "representativeId": "R-Wpn-EMPCannon",
+      "researchIds": [
+        "R-Wpn-EMPCannon"
+      ],
+      "x": 960,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmflmr.pie\",\"gnmflmr.pie\"]]": {
+      "index": 145,
+      "representativeId": "R-Wpn-Flame2",
+      "researchIds": [
+        "R-Wpn-Flame2",
+        "R-Wpn-Flamer-Damage04",
+        "R-Wpn-Flamer-Damage05",
+        "R-Wpn-Flamer-Damage06"
+      ],
+      "x": 1200,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlflmr.pie\",\"gnlflmr.pie\"]]": {
+      "index": 146,
+      "representativeId": "R-Wpn-Flamer-Damage01",
+      "researchIds": [
+        "R-Wpn-Flamer-Damage01",
+        "R-Wpn-Flamer-Damage02",
+        "R-Wpn-Flamer-Damage03",
+        "R-Wpn-Flamer-ROF01",
+        "R-Wpn-Flamer-ROF02",
+        "R-Wpn-Flamer-ROF03",
+        "R-Wpn-Flamer01Mk1"
+      ],
+      "x": 1440,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmflmrp.pie\",\"gnmflmrp.pie\"]]": {
+      "index": 147,
+      "representativeId": "R-Wpn-Flamer-Damage07",
+      "researchIds": [
+        "R-Wpn-Flamer-Damage07",
+        "R-Wpn-Flamer-Damage08",
+        "R-Wpn-Flamer-Damage09",
+        "R-Wpn-Plasmite-Flamer"
+      ],
+      "x": 1680,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhplasm.pie\",\"gnhplasm.pie\"]]": {
+      "index": 148,
+      "representativeId": "R-Wpn-HeavyPlasmaLauncher",
+      "researchIds": [
+        "R-Wpn-HeavyPlasmaLauncher"
+      ],
+      "x": 1920,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmhowt.pie\",\"gnmhowt.pie\"]]": {
+      "index": 149,
+      "representativeId": "R-Wpn-Howitzer-Accuracy01",
+      "researchIds": [
+        "R-Wpn-Howitzer-Accuracy01",
+        "R-Wpn-Howitzer-Accuracy02",
+        "R-Wpn-Howitzer-Accuracy03",
+        "R-Wpn-Howitzer-Damage01",
+        "R-Wpn-Howitzer-Damage02",
+        "R-Wpn-Howitzer-Damage03",
+        "R-Wpn-Howitzer-Damage04",
+        "R-Wpn-Howitzer-Damage05",
+        "R-Wpn-Howitzer-Damage06",
+        "R-Wpn-Howitzer-ROF01",
+        "R-Wpn-Howitzer-ROF02",
+        "R-Wpn-Howitzer-ROF03",
+        "R-Wpn-Howitzer-ROF04",
+        "R-Wpn-HowitzerMk1"
+      ],
+      "x": 2160,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmhowt.pie\",\"gnmhowti.pie\"]]": {
+      "index": 150,
+      "representativeId": "R-Wpn-Howitzer-Incendiary",
+      "researchIds": [
+        "R-Wpn-Howitzer-Incendiary"
+      ],
+      "x": 2400,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhhow2.pie\",\"gnhhowt2.pie\"]]": {
+      "index": 151,
+      "representativeId": "R-Wpn-Howitzer03-Rot",
+      "researchIds": [
+        "R-Wpn-Howitzer03-Rot"
+      ],
+      "x": 2640,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhmslab.pie\",\"gnhmslab.pie\"]]": {
+      "index": 152,
+      "representativeId": "R-Wpn-HvArtMissile",
+      "researchIds": [
+        "R-Wpn-HvArtMissile"
+      ],
+      "x": 2880,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhhowt.pie\",\"gnhhowt.pie\"]]": {
+      "index": 153,
+      "representativeId": "R-Wpn-HvyHowitzer",
+      "researchIds": [
+        "R-Wpn-HvyHowitzer"
+      ],
+      "x": 3120,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhlas.pie\",\"gnhlas.pie\"]]": {
+      "index": 154,
+      "representativeId": "R-Wpn-HvyLaser",
+      "researchIds": [
+        "R-Wpn-HvyLaser"
+      ],
+      "x": 3360,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhlas.pie\",\"gnhlas2.pie\"]]": {
+      "index": 155,
+      "representativeId": "R-Wpn-ParticleGun",
+      "researchIds": [
+        "R-Wpn-ParticleGun"
+      ],
+      "x": 3600,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"milasbas.pie\",\"trlassat.pie\",\"gnlassat.pie\"]]": {
+      "index": 156,
+      "representativeId": "R-Wpn-LasSat",
+      "researchIds": [
+        "R-Wpn-LasSat"
+      ],
+      "x": 3840,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmlas.pie\",\"gnmrlas.pie\"]]": {
+      "index": 157,
+      "representativeId": "R-Wpn-Laser01",
+      "researchIds": [
+        "R-Wpn-Laser01"
+      ],
+      "x": 4080,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlmg1.pie\",\"gnlmg1.pie\"]]": {
+      "index": 158,
+      "representativeId": "R-Wpn-MG-Damage01",
+      "researchIds": [
+        "R-Wpn-MG-Damage01",
+        "R-Wpn-MG-Damage02",
+        "R-Wpn-MG-Damage03",
+        "R-Wpn-MG-Damage04",
+        "R-Wpn-MG-Damage05",
+        "R-Wpn-MG-Damage06",
+        "R-Wpn-MG-Damage07",
+        "R-Wpn-MG-Damage08",
+        "R-Wpn-MG-Damage09",
+        "R-Wpn-MG-Damage10",
+        "R-Wpn-MG-ROF01",
+        "R-Wpn-MG-ROF02",
+        "R-Wpn-MG-ROF03",
+        "R-Wpn-MG1Mk1"
+      ],
+      "x": 4320,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlmg2.pie\",\"gnlmg2.pie\"]]": {
+      "index": 159,
+      "representativeId": "R-Wpn-MG2Mk1",
+      "researchIds": [
+        "R-Wpn-MG2Mk1"
+      ],
+      "x": 4560,
+      "y": 1288,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmmg.pie\",\"gnmmg1.pie\"]]": {
+      "index": 160,
+      "representativeId": "R-Wpn-MG3Mk1",
+      "researchIds": [
+        "R-Wpn-MG3Mk1"
+      ],
+      "x": 0,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmmg.pie\",\"gnmmg2.pie\"]]": {
+      "index": 161,
+      "representativeId": "R-Wpn-MG4",
+      "researchIds": [
+        "R-Wpn-MG4"
+      ],
+      "x": 240,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhmg.pie\",\"gnhmg1.pie\"]]": {
+      "index": 162,
+      "representativeId": "R-Wpn-MG5",
+      "researchIds": [
+        "R-Wpn-MG5"
+      ],
+      "x": 480,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmmslaa.pie\",\"gnmmslaa.pie\"]]": {
+      "index": 163,
+      "representativeId": "R-Wpn-MdArtMissile",
+      "researchIds": [
+        "R-Wpn-MdArtMissile"
+      ],
+      "x": 720,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhmslsa.pie\",\"gnhmslsa.pie\"]]": {
+      "index": 164,
+      "representativeId": "R-Wpn-Missile-HvSAM",
+      "researchIds": [
+        "R-Wpn-Missile-HvSAM"
+      ],
+      "x": 960,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmmslsa.pie\",\"gnmmslsa.pie\"]]": {
+      "index": 165,
+      "representativeId": "R-Wpn-Missile-LtSAM",
+      "researchIds": [
+        "R-Wpn-Missile-LtSAM"
+      ],
+      "x": 1200,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmmort.pie\",\"gnmmort.pie\"]]": {
+      "index": 166,
+      "representativeId": "R-Wpn-Mortar-Acc01",
+      "researchIds": [
+        "R-Wpn-Mortar-Acc01",
+        "R-Wpn-Mortar-Damage01",
+        "R-Wpn-Mortar-Damage02",
+        "R-Wpn-Mortar-Damage03",
+        "R-Wpn-Mortar-Damage04",
+        "R-Wpn-Mortar-Damage05",
+        "R-Wpn-Mortar-ROF01",
+        "R-Wpn-Mortar-ROF02",
+        "R-Wpn-Mortar01Lt"
+      ],
+      "x": 1440,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhrmort.pie\",\"gnhmort2.pie\"]]": {
+      "index": 167,
+      "representativeId": "R-Wpn-Mortar-Acc02",
+      "researchIds": [
+        "R-Wpn-Mortar-Acc02",
+        "R-Wpn-Mortar-Acc03",
+        "R-Wpn-Mortar-Damage06",
+        "R-Wpn-Mortar-ROF03",
+        "R-Wpn-Mortar-ROF04",
+        "R-Wpn-Mortar02Hvy"
+      ],
+      "x": 1680,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmmort.pie\",\"gnmmorti.pie\"]]": {
+      "index": 168,
+      "representativeId": "R-Wpn-Mortar-Incendiary",
+      "researchIds": [
+        "R-Wpn-Mortar-Incendiary"
+      ],
+      "x": 1920,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhrmort.pie\",\"gnhmort.pie\"]]": {
+      "index": 169,
+      "representativeId": "R-Wpn-Mortar3",
+      "researchIds": [
+        "R-Wpn-Mortar3"
+      ],
+      "x": 2160,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhrmort.pie\",\"gnhmorte.pie\"]]": {
+      "index": 170,
+      "representativeId": "R-Wpn-MortarEMP",
+      "researchIds": [
+        "R-Wpn-MortarEMP"
+      ],
+      "x": 2400,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhlas.pie\",\"gnhplsma.pie\"]]": {
+      "index": 171,
+      "representativeId": "R-Wpn-PlasmaCannon",
+      "researchIds": [
+        "R-Wpn-PlasmaCannon"
+      ],
+      "x": 2640,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlgss.pie\",\"gnlgss.pie\"]]": {
+      "index": 172,
+      "representativeId": "R-Wpn-Rail-Accuracy01",
+      "researchIds": [
+        "R-Wpn-Rail-Accuracy01",
+        "R-Wpn-Rail-Damage01",
+        "R-Wpn-Rail-Damage02",
+        "R-Wpn-Rail-Damage03",
+        "R-Wpn-Rail-ROF01",
+        "R-Wpn-Rail-ROF02",
+        "R-Wpn-Rail-ROF03",
+        "R-Wpn-RailGun01"
+      ],
+      "x": 2880,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhgss.pie\",\"gnhgss.pie\"]]": {
+      "index": 173,
+      "representativeId": "R-Wpn-RailGun03",
+      "researchIds": [
+        "R-Wpn-RailGun03"
+      ],
+      "x": 3120,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trlrcktp.pie\",\"gnlrcktp.pie\"]]": {
+      "index": 174,
+      "representativeId": "R-Wpn-Rocket-Accuracy01",
+      "researchIds": [
+        "R-Wpn-Rocket-Accuracy01",
+        "R-Wpn-Rocket-Damage01",
+        "R-Wpn-Rocket-Damage02",
+        "R-Wpn-Rocket-Damage03",
+        "R-Wpn-Rocket-ROF01",
+        "R-Wpn-Rocket-ROF02",
+        "R-Wpn-Rocket-ROF03",
+        "R-Wpn-Rocket05-MiniPod"
+      ],
+      "x": 3360,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmrckta.pie\",\"gnmrckta.pie\"]]": {
+      "index": 175,
+      "representativeId": "R-Wpn-Rocket-Accuracy02",
+      "researchIds": [
+        "R-Wpn-Rocket-Accuracy02",
+        "R-Wpn-Rocket-Damage04",
+        "R-Wpn-Rocket-Damage05",
+        "R-Wpn-Rocket-Damage06",
+        "R-Wpn-Rocket-Damage07",
+        "R-Wpn-Rocket-Damage08",
+        "R-Wpn-Rocket-Damage09",
+        "R-Wpn-Rocket01-LtAT",
+        "R-Wpn-RocketSlow-Accuracy01",
+        "R-Wpn-RocketSlow-Accuracy02"
+      ],
+      "x": 3600,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmrckt.pie\",\"gnmrckt.pie\"]]": {
+      "index": 176,
+      "representativeId": "R-Wpn-Rocket02-MRL",
+      "researchIds": [
+        "R-Wpn-Rocket02-MRL"
+      ],
+      "x": 3840,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"mrat2_mount.pie\",\"mrat2_gun.pie\"]]": {
+      "index": 177,
+      "representativeId": "R-Wpn-Rocket02-MRLHvy",
+      "researchIds": [
+        "R-Wpn-Rocket02-MRLHvy"
+      ],
+      "x": 4080,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmrktbb.pie\",\"gnmrktbb.pie\"]]": {
+      "index": 178,
+      "representativeId": "R-Wpn-Rocket03-HvAT",
+      "researchIds": [
+        "R-Wpn-Rocket03-HvAT"
+      ],
+      "x": 4320,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trhrckt.pie\",\"gnhrckt.pie\"]]": {
+      "index": 179,
+      "representativeId": "R-Wpn-Rocket06-IDF",
+      "researchIds": [
+        "R-Wpn-Rocket06-IDF"
+      ],
+      "x": 4560,
+      "y": 1472,
+      "width": 240,
+      "height": 184
+    },
+    "[[\"trmair3.pie\",\"gnmair3.pie\"]]": {
+      "index": 180,
+      "representativeId": "R-Wpn-Sunburst",
+      "researchIds": [
+        "R-Wpn-Sunburst"
+      ],
+      "x": 0,
+      "y": 1656,
+      "width": 240,
+      "height": 184
+    }
+  }
+}

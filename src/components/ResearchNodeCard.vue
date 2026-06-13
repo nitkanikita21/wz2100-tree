@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { Handle, Position } from '@vue-flow/core';
 import type { ResearchNode } from '../types';
 import { useSessionStore } from '../stores/session';
 import { usePlansStore } from '../stores/plans';
 import { useUiStore } from '../stores/ui';
+import { useDataStore } from '../stores/data';
+import ResearchIconPreview from './ResearchIconPreview.vue';
 
 const props = defineProps<{
   id: string;
@@ -14,31 +16,106 @@ const props = defineProps<{
 const session = useSessionStore();
 const plans = usePlansStore();
 const ui = useUiStore();
+const dataStore = useDataStore();
+const SPRITE_COLUMNS = 20;
+const SPRITE_WIDTH = 60;
+const SPRITE_HEIGHT = 46;
+const SPRITE_URL = '/generated' + '/research-models-sheet.png';
 
 const status = computed(() => session.statuses.get(props.id) ?? 'locked');
 const planned = computed(() => plans.plannedSet.has(props.id));
+const selected = computed(() => ui.selectedId === props.id);
+const useSpriteSheet = ref(true);
+const liveReady = ref(false);
+const costBarPercent = computed(() => Math.min(100, Math.floor(props.data.node.cost / 5)));
+function modelSpriteKey(node: ResearchNode): string {
+  return JSON.stringify(
+    node.modelGroups.map((group) =>
+      group.parts.map((part) => part.model.toLowerCase()),
+    ),
+  );
+}
+const spriteIndex = computed(() => {
+  const keys = new Map<string, number>();
+  for (const node of dataStore.nodes) {
+    const key = modelSpriteKey(node);
+    if (!keys.has(key)) keys.set(key, keys.size);
+  }
+  return keys.get(modelSpriteKey(props.data.node)) ?? 0;
+});
+const spriteStyle = computed(() => {
+  const index = Math.max(0, spriteIndex.value);
+  const col = index % SPRITE_COLUMNS;
+  const row = Math.floor(index / SPRITE_COLUMNS);
+  const rows = Math.ceil(new Set(dataStore.nodes.map(modelSpriteKey)).size / SPRITE_COLUMNS);
+  return {
+    backgroundImage: `url("${SPRITE_URL}")`,
+    backgroundPosition: `-${col * SPRITE_WIDTH}px -${row * SPRITE_HEIGHT}px`,
+    backgroundSize: `${SPRITE_COLUMNS * SPRITE_WIDTH}px ${rows * SPRITE_HEIGHT}px`,
+  };
+});
 const dimmed = computed(() => {
   const branchOff = !ui.enabledBranches.has(props.data.node.branch);
   const hl = ui.highlightSet;
   const outsideHighlight = hl.size > 0 && !hl.has(props.id);
   return branchOff || outsideHighlight;
 });
+
+watch(() => props.id, () => {
+  useSpriteSheet.value = true;
+  liveReady.value = false;
+});
+
+watch(selected, () => {
+  liveReady.value = false;
+});
 </script>
 
 <template>
-  <div class="card" :class="[status, { planned, dimmed }]" :title="data.node.name">
+  <div class="card" :class="[status, { planned, selected, dimmed }]" :title="data.node.name">
     <Handle type="target" :position="Position.Top" />
-    <img class="icon" :src="`/icons/${data.node.icon}`" :alt="data.node.branch" />
+    <div class="icon-slot">
+      <img
+        v-if="useSpriteSheet"
+        class="sprite-probe"
+        :src="SPRITE_URL"
+        alt=""
+        @error="useSpriteSheet = false"
+      />
+      <div v-if="useSpriteSheet && (!selected || !liveReady)" class="icon node-icon">
+        <div class="model-sprite" :style="spriteStyle"></div>
+        <img class="main-icon" :src="`/icons/${data.node.icon}`" alt="" />
+        <img
+          v-if="data.node.subIcon"
+          class="sub-icon"
+          :src="`/icons/${data.node.subIcon}`"
+          alt=""
+        />
+        <div class="cost-bar" aria-hidden="true">
+          <div class="cost-bar-fill" :style="{ width: `${costBarPercent}%` }"></div>
+        </div>
+      </div>
+      <ResearchIconPreview
+        v-if="selected"
+        class="icon live-icon"
+        :class="{ ready: liveReady }"
+        :node="data.node"
+        size="node"
+        :rotate="selected"
+        :show-overlay="false"
+        @ready="liveReady = true"
+      />
+      <ResearchIconPreview
+        v-else-if="!useSpriteSheet"
+        class="icon fallback-icon"
+        :node="data.node"
+        size="node"
+      />
+    </div>
     <div class="body">
       <div class="name">{{ data.node.name }}</div>
-      <div class="points">{{ data.node.points }} оч.</div>
+      <div class="points">{{ data.node.points }} оч. · Ціна {{ data.node.cost }}</div>
     </div>
-    <img
-      v-if="data.node.subIcon"
-      class="sub-icon"
-      :src="`/icons/${data.node.subIcon}`"
-      alt=""
-    />
     <Handle type="source" :position="Position.Bottom" />
   </div>
 </template>
@@ -57,18 +134,80 @@ const dimmed = computed(() => {
 .card.available { border-color: var(--yellow); }
 .card.locked { border-color: var(--border); }
 .card.planned { box-shadow: inset 4px 0 0 0 var(--blue); }
+.card.selected { outline: 2px solid var(--blue); outline-offset: 2px; }
 .card.dimmed { opacity: 0.25; }
-.icon { width: 28px; height: 28px; image-rendering: pixelated; }
+.icon { pointer-events: auto; }
+.icon-slot {
+  position: relative;
+  width: 60px;
+  height: 46px;
+  flex: 0 0 60px;
+}
+.sprite-probe {
+  display: none;
+}
+.node-icon {
+  position: absolute;
+  inset: 0;
+  width: 60px;
+  height: 46px;
+  overflow: hidden;
+  background: url('/interface/image_but0_up.png') center / 100% 100% no-repeat;
+  image-rendering: pixelated;
+}
+.live-icon {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.live-icon.ready {
+  opacity: 1;
+  pointer-events: auto;
+}
+.fallback-icon {
+  position: absolute;
+  inset: 0;
+}
+.model-sprite {
+  position: absolute;
+  inset: 0;
+  background-repeat: no-repeat;
+}
+.main-icon,
+.sub-icon {
+  position: absolute;
+  width: auto;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8));
+}
+.main-icon {
+  top: 3px;
+  left: 3px;
+}
+.sub-icon {
+  top: 3px;
+  right: 0;
+}
+.cost-bar {
+  position: absolute;
+  left: 3px;
+  top: 39px;
+  width: 52px;
+  height: 4px;
+  overflow: hidden;
+}
+.cost-bar-fill {
+  height: 100%;
+  background: #e7f220;
+}
 .body { flex: 1; min-width: 0; }
 .name {
   font-size: 12px; line-height: 1.2;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .points { font-size: 10px; color: var(--text-dim); }
-.sub-icon {
-  position: absolute; top: -8px; right: -8px;
-  width: 20px; height: 20px; image-rendering: pixelated;
-}
 .card :deep(.vue-flow__handle) {
   width: 6px; height: 6px; background: var(--border); border: none;
 }

@@ -5,6 +5,7 @@ import { usePlansStore } from '../stores/plans';
 import { useSessionStore } from '../stores/session';
 import { useUiStore } from '../stores/ui';
 import type { Branch, NodeStatus, ResearchNode } from '../types';
+import ResearchIconPreview from './ResearchIconPreview.vue';
 
 const data = useDataStore();
 const plans = usePlansStore();
@@ -72,6 +73,7 @@ function onToggleResearched(): void {
         {{ BRANCH_LABELS[node.branch] }}<span v-if="node.category"> · {{ node.category }}</span>
       </p>
       <p class="meta">Очки дослідження: {{ node.points }}</p>
+      <p class="meta">Ціна: {{ node.cost }}</p>
       <p class="status" :class="status">{{ STATUS_LABELS[status] }}</p>
 
       <label v-if="session.gameMode" class="researched-toggle">
@@ -115,14 +117,14 @@ function onToggleResearched(): void {
         </div>
       </div>
 
-      <div v-if="node.resultComponents.length" class="block">
-        <h3>Компоненти:</h3>
-        <p class="results">{{ node.resultComponents.join(', ') }}</p>
-      </div>
-
       <div v-if="node.resultStructures.length" class="block">
         <h3>Споруди:</h3>
         <p class="results">{{ node.resultStructures.join(', ') }}</p>
+      </div>
+
+      <div v-if="node.models.length" class="block">
+        <h3>Іконка:</h3>
+        <ResearchIconPreview :node="node" />
       </div>
     </template>
   </section>

@@ -14,6 +14,7 @@ function fixture(): Record<string, RawResearch> {
       name: 'Hardcrete',
       iconID: 'IMAGE_RES_DEFENCE',
       researchPoints: 600,
+      researchPower: 19,
       requiredResearch: ['R-Sys-Engineering01'],
       resultStructures: ['A0HardcreteMk1Wall'],
       category: 'Wall',
@@ -23,6 +24,7 @@ function fixture(): Record<string, RawResearch> {
       name: 'Machinegun',
       iconID: 'IMAGE_RES_WEAPONTECH',
       researchPoints: 100,
+      researchPower: 3,
       resultComponents: ['MG1Mk1'],
       subgroupIconID: 'IMAGE_RES_GRPDAM',
       category: 'Machinegun',
@@ -32,6 +34,7 @@ function fixture(): Record<string, RawResearch> {
       name: 'Twin Machinegun',
       iconID: 'IMAGE_RES_WEAPONTECH',
       researchPoints: 500,
+      researchPower: 16,
       requiredResearch: ['R-Wpn-MG1Mk1'],
       resultComponents: ['MG2Mk1'],
     },
@@ -46,6 +49,7 @@ describe('normalize', () => {
       id: 'R-Sys-Engineering01',
       name: 'Engineering',
       points: 600,
+      cost: 0,
       branch: 'system',
       icon: 'image_res_systemtech.png',
       subIcon: null,
@@ -53,6 +57,8 @@ describe('normalize', () => {
       prereqs: [],
       resultComponents: [],
       resultStructures: [],
+      models: [],
+      modelGroups: [],
     });
   });
 

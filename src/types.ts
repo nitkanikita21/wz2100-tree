@@ -6,6 +6,7 @@ export interface ResearchNode {
   id: string;                // "R-Wpn-Cannon1Mk1"
   name: string;              // "Light Cannon" (EN, з даних гри)
   points: number;            // researchPoints
+  cost: number;              // researchPower
   branch: Branch;            // з iconID
   icon: string;              // "image_res_weapontech.png"
   subIcon: string | null;    // "image_res_grpdam.png" | null
@@ -13,8 +14,24 @@ export interface ResearchNode {
   prereqs: string[];         // requiredResearch
   resultComponents: string[];
   resultStructures: string[];
+  models: string[];          // .pie-моделі для research-preview
+  modelGroups: ModelGroup[]; // окремі preview-обʼєкти; складені частини всередині group.models
   x: number;                 // прекомпʼючені ELK-координати
   y: number;
+}
+
+export interface ModelGroup {
+  id: string;
+  models: string[];
+  parts: ModelPart[];
+  scaleMode?: 'component' | 'research' | 'structure';
+  structureBasePlate?: number;
+  componentScaleMultiplier?: number;
+}
+
+export interface ModelPart {
+  model: string;
+  attachToPrevious: boolean;
 }
 
 export interface ResearchData {

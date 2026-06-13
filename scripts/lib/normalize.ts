@@ -6,6 +6,7 @@ export interface RawResearch {
   name: string;
   iconID?: string;
   researchPoints: number;
+  researchPower?: number;
   requiredResearch?: string[];
   resultComponents?: string[];
   resultStructures?: string[];
@@ -32,6 +33,7 @@ export function normalize(raw: Record<string, RawResearch>): Omit<ResearchNode, 
     id: r.id,
     name: r.name,
     points: r.researchPoints,
+    cost: r.researchPower ?? 0,
     // Невідомий iconID дає undefined у branch — це ловить validateGraph.
     branch: ICON_TO_BRANCH[r.iconID ?? ''],
     icon: (r.iconID ?? '').toLowerCase() + '.png',
@@ -40,6 +42,8 @@ export function normalize(raw: Record<string, RawResearch>): Omit<ResearchNode, 
     prereqs: r.requiredResearch ?? [],
     resultComponents: r.resultComponents ?? [],
     resultStructures: r.resultStructures ?? [],
+    models: [],
+    modelGroups: [],
   }));
 }
 
