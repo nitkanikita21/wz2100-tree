@@ -3,6 +3,7 @@ import { nextTick, onBeforeUnmount, ref, shallowRef, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import * as THREE from 'three';
 import { parsePieModel } from '../lib/pieModel';
+import { asset } from '../lib/asset';
 import type { ModelGroup, ModelPart } from '../types';
 
 const props = withDefaults(defineProps<{
@@ -304,7 +305,7 @@ async function loadTexture(texture: string | null, blackTransparent: boolean): P
   const cached = textureCache.get(cacheKey);
   if (cached) return cached;
 
-  const loadedImage = await new THREE.ImageLoader().loadAsync(`/texpages/${texture}`) as HTMLImageElement;
+  const loadedImage = await new THREE.ImageLoader().loadAsync(asset(`texpages/${texture}`)) as HTMLImageElement;
   const loaded = blackTransparent
     ? makeBlackTransparentTexture(loadedImage)
     : new THREE.Texture(loadedImage);
@@ -327,7 +328,7 @@ type RenderPart = {
 };
 
 async function createModelMesh(model: string): Promise<RenderPart> {
-  const res = await fetch(`/models/${model.toLowerCase()}`);
+  const res = await fetch(asset(`models/${model.toLowerCase()}`));
   if (!res.ok) throw new Error(`${model}: ${res.status} ${res.statusText}`);
   const parsed = parsePieModel(await res.text());
   if (!parsed.vertices.length || !parsed.indices.length) throw new Error(`${model}: empty model`);

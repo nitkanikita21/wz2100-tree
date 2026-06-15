@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { parsePieModel } from '../lib/pieModel';
+import { asset } from '../lib/asset';
 import type { ModelGroup, ModelPart } from '../types';
 
 type ScaleMode = 'component' | 'research' | 'structure';
@@ -116,7 +117,7 @@ async function loadTexture(texture: string | null, blackTransparent: boolean): P
   const cached = textureCache.get(cacheKey);
   if (cached) return cached;
 
-  const response = await fetch(`/texpages/${texture}`);
+  const response = await fetch(asset(`texpages/${texture}`));
   if (!response.ok) throw new Error(`${texture}: ${response.status} ${response.statusText}`);
   const blob = await response.blob();
   const loaded = blackTransparent
@@ -135,7 +136,7 @@ async function loadTexture(texture: string | null, blackTransparent: boolean): P
 }
 
 async function createModelMesh(model: string): Promise<RenderPart> {
-  const res = await fetch(`/models/${model.toLowerCase()}`);
+  const res = await fetch(asset(`models/${model.toLowerCase()}`));
   if (!res.ok) throw new Error(`${model}: ${res.status} ${res.statusText}`);
   const parsed = parsePieModel(await res.text());
   if (!parsed.vertices.length || !parsed.indices.length) throw new Error(`${model}: empty model`);

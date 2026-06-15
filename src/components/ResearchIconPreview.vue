@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import type { ResearchNode } from '../types';
+import { asset } from '../lib/asset';
 import ModelPreview from './ModelPreview.vue';
 
 const props = withDefaults(defineProps<{
@@ -26,12 +27,16 @@ const emit = defineEmits<{
 
 const hovered = ref(false);
 const costBarPercent = computed(() => Math.min(100, Math.floor(props.node.cost / 5)));
+const frameStyle = computed(() =>
+  props.showFrame ? { backgroundImage: `url('${asset('interface/image_but0_up.png')}')` } : {},
+);
 </script>
 
 <template>
   <div
     class="research-icon"
     :class="[size, { frameless: !showFrame }]"
+    :style="frameStyle"
     :title="node.name"
     tabindex="0"
     @pointerenter="hovered = true"
@@ -50,11 +55,11 @@ const costBarPercent = computed(() => Math.min(100, Math.floor(props.node.cost /
       :rotate="rotate || hovered"
       @ready="emit('ready')"
     />
-    <img v-if="showIcons" class="main-icon" :src="`/icons/${node.icon}`" alt="" />
+    <img v-if="showIcons" class="main-icon" :src="asset(`icons/${node.icon}`)" alt="" />
     <img
       v-if="showIcons && node.subIcon"
       class="sub-icon"
-      :src="`/icons/${node.subIcon}`"
+      :src="asset(`icons/${node.subIcon}`)"
       alt=""
     />
     <div v-if="showCostBar" class="cost-bar" aria-hidden="true">
@@ -69,7 +74,10 @@ const costBarPercent = computed(() => Math.min(100, Math.floor(props.node.cost /
   width: 120px;
   aspect-ratio: 60 / 46;
   overflow: hidden;
-  background: url('/interface/image_but0_up.png') center / 100% 100% no-repeat;
+  /* background-image is set inline (base-aware) when showFrame is true. */
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   image-rendering: pixelated;
 }
 .research-icon.node {

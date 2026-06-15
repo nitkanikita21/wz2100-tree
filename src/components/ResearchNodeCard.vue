@@ -7,6 +7,7 @@ import { useSessionStore } from '../stores/session';
 import { usePlansStore } from '../stores/plans';
 import { useUiStore } from '../stores/ui';
 import { useDataStore } from '../stores/data';
+import { asset } from '../lib/asset';
 import ResearchIconPreview from './ResearchIconPreview.vue';
 
 const props = withDefaults(defineProps<{
@@ -26,7 +27,8 @@ const dataStore = useDataStore();
 const SPRITE_COLUMNS = 20;
 const SPRITE_WIDTH = 60;
 const SPRITE_HEIGHT = 46;
-const SPRITE_URL = '/generated' + '/research-models-sheet.png';
+const SPRITE_URL = asset('generated/research-models-sheet.png');
+const FRAME_URL = asset('interface/image_but0_up.png');
 
 const status = computed(() => session.statuses.get(props.id) ?? 'locked');
 const planned = computed(() => plans.plannedSet.has(props.id));
@@ -93,13 +95,17 @@ watch(showLive, (now) => {
         alt=""
         @error="useSpriteSheet = false"
       />
-      <div v-if="useSpriteSheet && (!showLive || !liveReady)" class="icon node-icon">
+      <div
+        v-if="useSpriteSheet && (!showLive || !liveReady)"
+        class="icon node-icon"
+        :style="{ backgroundImage: `url('${FRAME_URL}')` }"
+      >
         <div class="model-sprite" :style="spriteStyle"></div>
-        <img class="main-icon" :src="`/icons/${data.node.icon}`" alt="" />
+        <img class="main-icon" :src="asset(`icons/${data.node.icon}`)" alt="" />
         <img
           v-if="data.node.subIcon"
           class="sub-icon"
-          :src="`/icons/${data.node.subIcon}`"
+          :src="asset(`icons/${data.node.subIcon}`)"
           alt=""
         />
         <div class="cost-bar" aria-hidden="true">
@@ -163,7 +169,10 @@ watch(showLive, (now) => {
   width: 60px;
   height: 46px;
   overflow: hidden;
-  background: url('/interface/image_but0_up.png') center / 100% 100% no-repeat;
+  /* background-image set inline (base-aware). */
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   image-rendering: pixelated;
 }
 .live-icon {

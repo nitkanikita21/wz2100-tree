@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import type { Branch } from '../types';
+import { asset } from '../lib/asset';
 import { useUiStore } from '../stores/ui';
 
 const { t } = useI18n();
@@ -27,7 +28,7 @@ const BRANCHES: { branch: Branch; icon: string }[] = [
         :checked="ui.enabledBranches.has(b.branch)"
         @change="ui.toggleBranch(b.branch)"
       />
-      <img class="icon" :src="`/icons/${b.icon}`" :alt="t('branchFilter.' + b.branch)" />
+      <img class="icon" :src="asset(`icons/${b.icon}`)" :alt="t('branchFilter.' + b.branch)" />
       <span>{{ t('branchFilter.' + b.branch) }}</span>
     </label>
   </nav>
