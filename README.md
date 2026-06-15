@@ -1,45 +1,51 @@
 # WZ2100 Research Tree
 
-Інтерактивне дерево досліджень гри **Warzone 2100** — 390 технологій з мультиплеєрних
-даних гри (тег `4.7.0`). Статична SPA без бекенду: Vite + Vue 3 + TypeScript + Pinia +
-Vue Flow; розкладку графа прекомпʼютить elkjs на етапі генерації даних.
+An interactive research tree for **Warzone 2100** — all 390 technologies from the
+game's multiplayer data (tag `4.7.0`). A static, backend-free SPA built with
+Vite, Vue 3, TypeScript, Pinia and Vue Flow; the graph layout is precomputed
+with elkjs at data-build time, and node icons are rendered live with Three.js.
 
-## Можливості
+## Features
 
-- Повне дерево досліджень: зум/панорамування, підсвітка ланцюжка пререквізитів при
-  наведенні чи виборі, фільтри за гілками, пошук із перельотом до вузла.
-- Деталі технології: пререквізити, що вона відкриває, компоненти/споруди.
-- Планувальник: обираєш цілі — отримуєш впорядковану чергу досліджень з усіма
-  пререквізитами; ручне перевпорядкування drag-and-drop із перевіркою конфліктів;
-  кілька планів; експорт/імпорт у JSON.
-- Режим гри: відмічай вивчене під час партії і слідкуй за прогресом плану.
-  Усе зберігається в localStorage.
+- **Full tree** — zoom and pan, prerequisite-chain highlighting on hover or
+  select, per-branch filters, and search with fly-to.
+- **Live 3D previews** — each node shows its in-game model, rendered with
+  Three.js. A zoom-based level-of-detail falls back to static sprites when
+  zoomed out, so panning the whole tree stays smooth.
+- **Details panel** — prerequisites, what a tech unlocks, minimum research time,
+  stat upgrades, what it makes obsolete, and an auto-generated summary.
+- **Planner** — pick goals and get an ordered research queue with every
+  prerequisite resolved; reorder by drag-and-drop with conflict checks; keep
+  multiple plans; import/export as JSON.
+- **Game mode** — mark techs researched during a match and track plan progress.
+- **Localization** — English and Ukrainian, switchable in-app (auto-detected and
+  remembered). State persists to `localStorage`.
 
-## Запуск
+## Getting started
 
 ```bash
-npm install
-npm run build:data   # генерує src/data/research-4.7.0.json (потрібен інтернет)
-npm run icons        # завантажує іконки гри в public/icons/ (потрібен інтернет)
-npm run dev          # http://localhost:5173
+pnpm install
+pnpm build:data   # generates src/data/research-4.7.0.json (needs internet)
+pnpm icons        # downloads game icons into public/icons/ (needs internet)
+pnpm dev          # http://localhost:5173
 ```
 
-Згенерований файл даних закомічений у репозиторій, тож `build:data` та `icons`
-потрібні лише при першому налаштуванні без іконок або після зміни версії гри.
+The generated data file is committed, so `build:data` and `icons` are only
+needed for a fresh setup without icons or after bumping the game version.
 
-Інші команди: `npm test` (Vitest), `npm run build` (vue-tsc + vite build),
-`npm run preview`.
+Other scripts: `pnpm test` (Vitest), `pnpm build` (vue-tsc + vite build),
+`pnpm preview`.
 
-## Оновлення під нову версію гри
+## Updating to a new game version
 
-1. У `scripts/build-data.ts` і `scripts/download-icons.ts` змініть тег `4.7.0`
-   на потрібну версію.
-2. `npm run build:data && npm run icons` — перегенерує дані та іконки.
-3. Якщо змінилось імʼя файлу даних (`src/data/research-<версія>.json`) — оновіть
-   імпорт у `src/stores/data.ts`.
-4. `npm test && npm run build` — переконайтеся, що все зелене.
+1. Change the `4.7.0` tag in `scripts/build-data.ts` and
+   `scripts/download-icons.ts` to the target version.
+2. Run `pnpm build:data && pnpm icons` to regenerate data and icons.
+3. If the data file name changed (`src/data/research-<version>.json`), update the
+   import in `src/stores/data.ts`.
+4. Run `pnpm test && pnpm build` to confirm everything is green.
 
-## Ліцензія даних
+## Data license
 
-Дані досліджень та іконки походять з гри
+Research data and icons come from
 [Warzone 2100](https://github.com/Warzone2100/warzone2100) (GPL-2.0+).
