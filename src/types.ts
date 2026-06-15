@@ -2,6 +2,15 @@ export type Branch =
   | 'weapon' | 'defence' | 'droid' | 'cyborg'
   | 'system' | 'structure' | 'power' | 'computer';
 
+/** Один stat-апгрейд із поля `results` у research.json. */
+export interface ResearchResult {
+  class: string;             // "Weapon" | "Body" | "Brain" | ...
+  parameter: string;         // "Damage" | "Thermal" | "HitPoints" | ...
+  value: number;             // зазвичай % модифікатор (може бути від'ємним)
+  filterParameter?: string;  // "BodyClass" | "ImpactClass" | "Type" | "Id"
+  filterValue?: string;      // "Cyborgs" | "CANNON" | ...
+}
+
 export interface ResearchNode {
   id: string;                // "R-Wpn-Cannon1Mk1"
   name: string;              // "Light Cannon" (EN, з даних гри)
@@ -14,6 +23,10 @@ export interface ResearchNode {
   prereqs: string[];         // requiredResearch
   resultComponents: string[];
   resultStructures: string[];
+  results: ResearchResult[];       // stat-апгрейди (поле results)
+  requiredStructures: string[];    // де можна дослідити
+  redComponents: string[];         // компоненти, що стають застарілими
+  redStructures: string[];         // споруди, що стають застарілими
   models: string[];          // .pie-моделі для research-preview
   modelGroups: ModelGroup[]; // окремі preview-обʼєкти; складені частини всередині group.models
   x: number;                 // прекомпʼючені ELK-координати
@@ -37,6 +50,10 @@ export interface ModelPart {
 export interface ResearchData {
   version: string;           // "4.7.0"
   nodeCount: number;
+  /** Макс. очок дослідження/сек повністю прокачаної лабораторії (лаб+модуль+апгрейди). */
+  maxLabResearchPoints: number;
+  /** id компонента/споруди -> дружня назва (тільки для згаданих у вузлах id). */
+  componentNames: Record<string, string>;
   nodes: ResearchNode[];
 }
 

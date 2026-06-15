@@ -1,4 +1,4 @@
-import type { Branch, ResearchNode } from '../../src/types';
+import type { Branch, ResearchNode, ResearchResult } from '../../src/types';
 
 /** Сирий запис із data/mp/stats/research.json (Warzone 2100). */
 export interface RawResearch {
@@ -10,6 +10,10 @@ export interface RawResearch {
   requiredResearch?: string[];
   resultComponents?: string[];
   resultStructures?: string[];
+  results?: ResearchResult[];
+  requiredStructures?: string[];
+  redComponents?: string[];
+  redStructures?: string[];
   subgroupIconID?: string;
   category?: string;
   [key: string]: unknown;
@@ -42,6 +46,10 @@ export function normalize(raw: Record<string, RawResearch>): Omit<ResearchNode, 
     prereqs: r.requiredResearch ?? [],
     resultComponents: r.resultComponents ?? [],
     resultStructures: r.resultStructures ?? [],
+    results: r.results ?? [],
+    requiredStructures: r.requiredStructures ?? [],
+    redComponents: r.redComponents ?? [],
+    redStructures: r.redStructures ?? [],
     models: [],
     modelGroups: [],
   }));

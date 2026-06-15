@@ -57,6 +57,10 @@ describe('normalize', () => {
       prereqs: [],
       resultComponents: [],
       resultStructures: [],
+      results: [],
+      requiredStructures: [],
+      redComponents: [],
+      redStructures: [],
       models: [],
       modelGroups: [],
     });

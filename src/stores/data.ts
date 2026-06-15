@@ -11,6 +11,8 @@ export const useDataStore = defineStore('data', () => {
   // Статичні дані: нереактивні навмисно — граф не змінюється після завантаження.
   const nodes: ResearchNode[] = data.nodes;
   const index = buildIndex(nodes);
+  const maxLabResearchPoints = data.maxLabResearchPoints;
+  const componentNames = new Map<string, string>(Object.entries(data.componentNames ?? {}));
 
   const flowNodes = computed<Node[]>(() =>
     nodes.map((n) => ({
@@ -31,5 +33,5 @@ export const useDataStore = defineStore('data', () => {
     ),
   );
 
-  return { nodes, index, flowNodes, flowEdges };
+  return { nodes, index, flowNodes, flowEdges, maxLabResearchPoints, componentNames };
 });

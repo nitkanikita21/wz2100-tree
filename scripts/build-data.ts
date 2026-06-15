@@ -97,8 +97,16 @@ function indexedGroup(file: string, id: string, stat: RawStat, parts: ModelPart[
   };
 }
 
-async function buildModelIndex(): Promise<Map<string, IndexedModelGroup>> {
+type ModelIndexResult = {
+  index: Map<string, IndexedModelGroup>;
+  names: Map<string, string>;
+  labResearchPoints: number;
+  moduleResearchPoints: number;
+};
+
+async function buildModelIndex(): Promise<ModelIndexResult> {
   const index = new Map<string, IndexedModelGroup>();
+  const names = new Map<string, string>();
   const files = await Promise.all(
     MODEL_STAT_FILES.map(async (file) => [file, await fetchJson<Record<string, RawStat>>(`${BASE_URL}/${file}`)] as const),
   );
@@ -109,6 +117,8 @@ async function buildModelIndex(): Promise<Map<string, IndexedModelGroup>> {
 
   for (const [file, stats] of files) {
     for (const [id, stat] of Object.entries(stats)) {
+      const statId = stat.id ?? id;
+      if (typeof stat.name === 'string' && stat.name.length > 0) names.set(statId, stat.name);
       const parts = file === 'weapons.json' ? mountedParts(stat) : componentParts(stat);
 
       if (file === 'structure.json') {
@@ -127,13 +137,18 @@ async function buildModelIndex(): Promise<Map<string, IndexedModelGroup>> {
       }
 
       if (parts.length) {
-        const statId = stat.id ?? id;
         index.set(statId, indexedGroup(file, statId, stat, parts));
       }
     }
   }
 
-  return index;
+  const structures = statsByFile.get('structure.json') ?? {};
+  return {
+    index,
+    names,
+    labResearchPoints: Number(structures['A0ResearchFacility']?.researchPoints) || 0,
+    moduleResearchPoints: Number(structures['A0ResearchModule1']?.researchPoints) || 0,
+  };
 }
 
 function uniqueIds(ids: (string | undefined)[]): string[] {
@@ -207,11 +222,36 @@ function attachModels(
 async function main(): Promise<void> {
   console.log(`Завантаження ${URL} ...`);
   const raw = await fetchJson<Record<string, RawResearch>>(URL);
-  const modelIndex = await buildModelIndex();
+  const { index: modelIndex, names, labResearchPoints, moduleResearchPoints } = await buildModelIndex();
 
   const bare = normalize(raw);
   attachModels(bare, raw, modelIndex);
   validateGraph(bare);
+
+  // Макс. потужність лабораторії: (лаб + модуль) × (1 + сума %-апгрейдів ResearchPoints).
+  const researchUpgradePct = Object.values(raw).reduce((sum, r) => {
+    for (const res of r.results ?? []) {
+      if (res.parameter === 'ResearchPoints' && res.class === 'Building') sum += Number(res.value) || 0;
+    }
+    return sum;
+  }, 0);
+  const maxLabResearchPoints = (labResearchPoints + moduleResearchPoints) * (1 + researchUpgradePct / 100);
+  console.log(`Лабораторія: (${labResearchPoints}+${moduleResearchPoints})×${1 + researchUpgradePct / 100} = ${maxLabResearchPoints} очок/сек`);
+
+  // Дружні назви тільки для id, згаданих у вузлах (щоб не роздувати файл).
+  const referenced = new Set<string>();
+  for (const n of bare) {
+    for (const id of [
+      ...n.requiredStructures, ...n.redComponents, ...n.redStructures,
+      ...n.resultComponents, ...n.resultStructures,
+    ]) referenced.add(id);
+  }
+  const componentNames: Record<string, string> = {};
+  for (const id of [...referenced].sort()) {
+    const name = names.get(id);
+    if (name) componentNames[id] = name;
+  }
+  console.log(`Назви компонентів: ${Object.keys(componentNames).length}/${referenced.size} згаданих id`);
 
   const edges = bare.flatMap((n) =>
     n.prereqs.map((p) => ({ id: `${p}->${n.id}`, sources: [p], targets: [n.id] })),
@@ -236,7 +276,13 @@ async function main(): Promise<void> {
   const pos = new Map(layout.children!.map((c) => [c.id, { x: c.x ?? 0, y: c.y ?? 0 }]));
   const nodes: ResearchNode[] = bare.map((n) => ({ ...n, ...pos.get(n.id)! }));
 
-  const data: ResearchData = { version: VERSION, nodeCount: nodes.length, nodes };
+  const data: ResearchData = {
+    version: VERSION,
+    nodeCount: nodes.length,
+    maxLabResearchPoints,
+    componentNames,
+    nodes,
+  };
   await mkdir('src/data', { recursive: true });
   await writeFile(OUT_FILE, JSON.stringify(data));
   console.log(`Записано ${OUT_FILE} (${nodes.length} вузлів)`);
