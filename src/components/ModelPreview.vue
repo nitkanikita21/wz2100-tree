@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { nextTick, onBeforeUnmount, ref, shallowRef, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
 import * as THREE from 'three';
 import { parsePieModel } from '../lib/pieModel';
 import type { ModelGroup, ModelPart } from '../types';
@@ -23,6 +24,7 @@ const emit = defineEmits<{
   ready: [];
 }>();
 
+const { t } = useI18n();
 const host = ref<HTMLDivElement | null>(null);
 const error = ref<string | null>(null);
 const loading = ref(false);
@@ -543,10 +545,10 @@ nextTick(() => {
 <template>
   <div class="model-preview">
     <div ref="host" class="viewport" :class="{ compact }">
-      <div v-if="showOverlay && loading" class="overlay">Загрузка</div>
-      <div v-else-if="showOverlay && error" class="overlay">Нет модели</div>
+      <div v-if="showOverlay && loading" class="overlay">{{ t('model.loading') }}</div>
+      <div v-else-if="showOverlay && error" class="overlay">{{ t('model.noModel') }}</div>
     </div>
-    <div v-if="showTabs && groups.length > 1" class="model-tabs" aria-label="Варианты модели">
+    <div v-if="showTabs && groups.length > 1" class="model-tabs" :aria-label="t('model.variants')">
       <button
         v-for="(group, index) in groups"
         :key="group.id"

@@ -1,33 +1,25 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useDataStore } from '../stores/data';
 import { usePlansStore } from '../stores/plans';
 import { useSessionStore } from '../stores/session';
 import { useUiStore } from '../stores/ui';
-import type { Branch, NodeStatus, ResearchNode } from '../types';
+import type { NodeStatus, ResearchNode } from '../types';
+import {
+  describeNode,
+  formatDuration,
+  formatResult,
+  minResearchSeconds,
+  resolveName,
+} from '../lib/researchResults';
 import ResearchIconPreview from './ResearchIconPreview.vue';
 
+const { t } = useI18n();
 const data = useDataStore();
 const plans = usePlansStore();
 const session = useSessionStore();
 const ui = useUiStore();
-
-const BRANCH_LABELS: Record<Branch, string> = {
-  weapon: 'Зброя',
-  defence: 'Оборона',
-  droid: 'Дроїди',
-  cyborg: 'Кіборги',
-  system: 'Системи',
-  structure: 'Будівлі',
-  power: 'Енергія',
-  computer: 'Компʼютери',
-};
-
-const STATUS_LABELS: Record<NodeStatus, string> = {
-  researched: 'Вивчено',
-  available: 'Доступно',
-  locked: 'Недоступно',
-};
 
 const node = computed<ResearchNode | null>(() =>
   ui.selectedId ? data.index.byId.get(ui.selectedId) ?? null : null,
@@ -57,6 +49,36 @@ const alreadyGoal = computed(() =>
   plans.activePlan.goals.includes(node.value.id),
 );
 
+const minTime = computed(() =>
+  node.value
+    ? formatDuration(minResearchSeconds(node.value.points, data.maxLabResearchPoints))
+    : '',
+);
+
+const description = computed(() =>
+  node.value ? describeNode(node.value, data.componentNames, t) : '',
+);
+
+const upgrades = computed<string[]>(() =>
+  node.value ? node.value.results.map((r) => formatResult(r, data.componentNames, t)) : [],
+);
+
+const requiredStructureNames = computed<string[]>(() =>
+  node.value ? node.value.requiredStructures.map((id) => resolveName(id, data.componentNames)) : [],
+);
+
+const resultStructureNames = computed<string[]>(() =>
+  node.value ? node.value.resultStructures.map((id) => resolveName(id, data.componentNames)) : [],
+);
+
+const obsoleteNames = computed<string[]>(() =>
+  node.value
+    ? [...node.value.redComponents, ...node.value.redStructures].map((id) =>
+        resolveName(id, data.componentNames),
+      )
+    : [],
+);
+
 function onToggleResearched(): void {
   if (!node.value) return;
   session.toggle(node.value.id);
@@ -66,15 +88,17 @@ function onToggleResearched(): void {
 
 <template>
   <section class="details">
-    <p v-if="!node" class="empty">Клікни технологію на дереві</p>
+    <p v-if="!node" class="empty">{{ t('details.empty') }}</p>
     <template v-else>
       <h2>{{ node.name }}</h2>
       <p class="meta">
-        {{ BRANCH_LABELS[node.branch] }}<span v-if="node.category"> · {{ node.category }}</span>
+        {{ t('branch.' + node.branch) }}<span v-if="node.category"> · {{ node.category }}</span>
       </p>
-      <p class="meta">Очки дослідження: {{ node.points }}</p>
-      <p class="meta">Ціна: {{ node.cost }}</p>
-      <p class="status" :class="status">{{ STATUS_LABELS[status] }}</p>
+      <p class="meta">{{ t('details.points', { n: node.points }) }}</p>
+      <p class="meta">{{ t('details.cost', { n: node.cost }) }}</p>
+      <p class="meta">{{ t('details.minTime', { time: minTime }) }}</p>
+      <p v-if="description" class="description">{{ description }}</p>
+      <p class="status" :class="status">{{ t('status.' + status) }}</p>
 
       <label v-if="session.gameMode" class="researched-toggle">
         <input
@@ -82,15 +106,15 @@ function onToggleResearched(): void {
           :checked="status === 'researched'"
           @change="onToggleResearched"
         />
-        Вивчено
+        {{ t('details.researchedToggle') }}
       </label>
 
       <button class="add-goal" :disabled="alreadyGoal" @click="plans.addGoal(node.id)">
-        У план
+        {{ t('details.addToPlan') }}
       </button>
 
       <div v-if="prereqNodes.length" class="block">
-        <h3>Потребує:</h3>
+        <h3>{{ t('details.requires') }}</h3>
         <div class="link-list">
           <button
             v-for="p in prereqNodes"
@@ -104,7 +128,7 @@ function onToggleResearched(): void {
       </div>
 
       <div v-if="unlockNodes.length" class="block">
-        <h3>Відкриває:</h3>
+        <h3>{{ t('details.opens') }}</h3>
         <div class="link-list">
           <button
             v-for="u in unlockNodes"
@@ -117,13 +141,30 @@ function onToggleResearched(): void {
         </div>
       </div>
 
-      <div v-if="node.resultStructures.length" class="block">
-        <h3>Споруди:</h3>
-        <p class="results">{{ node.resultStructures.join(', ') }}</p>
+      <div v-if="upgrades.length" class="block">
+        <h3>{{ t('details.upgrades') }}</h3>
+        <ul class="upgrade-list">
+          <li v-for="(u, i) in upgrades" :key="i">{{ u }}</li>
+        </ul>
+      </div>
+
+      <div v-if="requiredStructureNames.length" class="block">
+        <h3>{{ t('details.researchedIn') }}</h3>
+        <p class="results">{{ requiredStructureNames.join(', ') }}</p>
+      </div>
+
+      <div v-if="obsoleteNames.length" class="block">
+        <h3>{{ t('details.obsoletes') }}</h3>
+        <p class="results">{{ obsoleteNames.join(', ') }}</p>
+      </div>
+
+      <div v-if="resultStructureNames.length" class="block">
+        <h3>{{ t('details.structures') }}</h3>
+        <p class="results">{{ resultStructureNames.join(', ') }}</p>
       </div>
 
       <div v-if="node.models.length" class="block">
-        <h3>Іконка:</h3>
+        <h3>{{ t('details.icon') }}</h3>
         <ResearchIconPreview :node="node" />
       </div>
     </template>
@@ -211,5 +252,20 @@ h3 {
   font-size: 12px;
   color: var(--text);
   word-break: break-word;
+}
+.description {
+  margin: 8px 0;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--text);
+}
+.upgrade-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12px;
+  color: var(--text);
+}
+.upgrade-list li {
+  margin: 1px 0;
 }
 </style>

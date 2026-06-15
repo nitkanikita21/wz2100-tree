@@ -3,6 +3,7 @@ import { defineStore } from 'pinia';
 import type { Plan } from '../types';
 import { buildQueue, removeGoalFromPlan, canMove, moveItem } from '../lib/planner';
 import { load, save, clear } from '../lib/storage';
+import { globalT } from '../i18n';
 import { useDataStore } from './data';
 import { useSessionStore } from './session';
 
@@ -74,7 +75,7 @@ export const usePlansStore = defineStore('plans', () => {
 
   function addGoal(researchId: string): void {
     if (!dataStore.index.byId.has(researchId)) return;
-    if (activePlan.value === null) createPlan('Новий план');
+    if (activePlan.value === null) createPlan(globalT('plan.newName'));
     const plan = activePlan.value!;
     if (!plan.goals.includes(researchId)) plan.goals.push(researchId);
     plan.queue = buildQueue(dataStore.index, plan.goals, researchedSet());
@@ -109,19 +110,19 @@ export const usePlansStore = defineStore('plans', () => {
     try {
       parsed = JSON.parse(json);
     } catch {
-      return { ok: false, error: 'Некоректний JSON' };
+      return { ok: false, error: globalT('plan.errBadJson') };
     }
     if (typeof parsed !== 'object' || parsed === null) {
-      return { ok: false, error: 'Невірний формат плану' };
+      return { ok: false, error: globalT('plan.errBadFormat') };
     }
     const candidate = parsed as { name?: unknown; goals?: unknown };
     if (typeof candidate.name !== 'string' || !Array.isArray(candidate.goals)) {
-      return { ok: false, error: 'Невірний формат плану: очікуються поля name і goals' };
+      return { ok: false, error: globalT('plan.errBadFields') };
     }
     const goals: string[] = [];
     for (const goal of candidate.goals) {
       if (typeof goal !== 'string' || !dataStore.index.byId.has(goal)) {
-        return { ok: false, error: `Невідоме дослідження: ${String(goal)}` };
+        return { ok: false, error: globalT('plan.errUnknownResearch', { id: String(goal) }) };
       }
       goals.push(goal);
     }

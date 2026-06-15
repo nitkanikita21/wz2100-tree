@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useDataStore } from '../stores/data';
 import { usePlansStore } from '../stores/plans';
 import { useSessionStore } from '../stores/session';
 import { useUiStore } from '../stores/ui';
 import type { ResearchNode } from '../types';
 
+const { t } = useI18n();
 const data = useDataStore();
 const plans = usePlansStore();
 const session = useSessionStore();
@@ -40,15 +42,15 @@ function onSelectPlan(event: Event): void {
 }
 
 function onCreate(): void {
-  const name = window.prompt('Назва плану', 'Новий план');
+  const name = window.prompt(t('plan.promptName'), t('plan.newName'));
   if (name === null) return;
-  plans.createPlan(name.trim() || 'Новий план');
+  plans.createPlan(name.trim() || t('plan.newName'));
 }
 
 function onRename(): void {
   const plan = plans.activePlan;
   if (!plan) return;
-  const name = window.prompt('Нова назва плану', plan.name);
+  const name = window.prompt(t('plan.promptRename'), plan.name);
   if (name === null) return;
   plans.renamePlan(plan.id, name.trim() || plan.name);
 }
@@ -56,7 +58,7 @@ function onRename(): void {
 function onDelete(): void {
   const plan = plans.activePlan;
   if (!plan) return;
-  if (window.confirm(`Видалити план «${plan.name}»?`)) {
+  if (window.confirm(t('plan.confirmDelete', { name: plan.name }))) {
     plans.deletePlan(plan.id);
   }
 }
@@ -127,37 +129,37 @@ function statusColor(id: string): string {
 <template>
   <section class="plan-panel">
     <div v-if="plans.storageCorrupt || session.storageCorrupt" class="corrupt-banner">
-      <span>Збереження пошкоджено</span>
-      <button class="reset-btn" @click="onResetStorage">Скинути</button>
+      <span>{{ t('plan.corrupt') }}</span>
+      <button class="reset-btn" @click="onResetStorage">{{ t('plan.reset') }}</button>
     </div>
 
-    <h2>План</h2>
+    <h2>{{ t('plan.title') }}</h2>
 
     <div class="plan-bar">
       <select :value="plans.activePlanId ?? ''" @change="onSelectPlan">
         <option v-for="p in plans.plans" :key="p.id" :value="p.id">{{ p.name }}</option>
       </select>
-      <button title="Новий план" @click="onCreate">+</button>
-      <button title="Перейменувати" :disabled="!plans.activePlan" @click="onRename">✎</button>
-      <button title="Видалити" :disabled="!plans.activePlan" @click="onDelete">🗑</button>
+      <button :title="t('plan.createTitle')" @click="onCreate">+</button>
+      <button :title="t('plan.renameTitle')" :disabled="!plans.activePlan" @click="onRename">✎</button>
+      <button :title="t('plan.deleteTitle')" :disabled="!plans.activePlan" @click="onDelete">🗑</button>
     </div>
 
     <template v-if="plans.activePlan">
       <div class="goals">
         <span v-for="g in goalNodes" :key="g.id" class="chip">
           {{ g.name }}
-          <button class="chip-x" title="Прибрати ціль" @click="plans.removeGoal(g.id)">✕</button>
+          <button class="chip-x" :title="t('plan.removeGoalTitle')" @click="plans.removeGoal(g.id)">✕</button>
         </span>
         <p v-if="goalNodes.length === 0" class="hint">
-          Додай цілі кнопкою «У план» у деталях технології
+          {{ t('plan.goalsHint') }}
         </p>
       </div>
 
       <ol class="queue">
         <li v-if="queueNodes.length" class="queue-total">
-          <span>Разом</span>
-          <span>{{ queuePoints }} оч.</span>
-          <span>Ціна {{ queueCost }}</span>
+          <span>{{ t('plan.total') }}</span>
+          <span>{{ t('node.pts', { n: queuePoints }) }}</span>
+          <span>{{ t('node.cost', { n: queueCost }) }}</span>
         </li>
         <li
           v-for="(n, idx) in queueNodes"
@@ -171,16 +173,16 @@ function statusColor(id: string): string {
           <span class="num">{{ idx + 1 }}.</span>
           <span class="dot" :style="{ background: statusColor(n.id) }"></span>
           <button class="name" @click="focusNode(n.id)">{{ n.name }}</button>
-          <span class="pts">{{ n.points }} оч.</span>
-          <span class="pts">Ціна {{ n.cost }}</span>
+          <span class="pts">{{ t('node.pts', { n: n.points }) }}</span>
+          <span class="pts">{{ t('node.cost', { n: n.cost }) }}</span>
         </li>
       </ol>
     </template>
-    <p v-else class="hint">Немає планів — створи перший кнопкою «+»</p>
+    <p v-else class="hint">{{ t('plan.noPlans') }}</p>
 
     <div class="io">
-      <button :disabled="!plans.activePlan" @click="onExport">Експорт</button>
-      <button @click="onImportClick">Імпорт</button>
+      <button :disabled="!plans.activePlan" @click="onExport">{{ t('plan.export') }}</button>
+      <button @click="onImportClick">{{ t('plan.import') }}</button>
       <input
         ref="fileInput"
         type="file"

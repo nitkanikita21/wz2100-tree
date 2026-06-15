@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useDataStore } from '../stores/data';
 import { usePlansStore } from '../stores/plans';
 import { useSessionStore } from '../stores/session';
 import { prereqClosure } from '../lib/graph';
 import type { ResearchNode } from '../types';
 
+const { t } = useI18n();
 const data = useDataStore();
 const plans = usePlansStore();
 const session = useSessionStore();
@@ -50,7 +52,7 @@ function onMark(id: string): void {
 }
 
 function onNewGame(): void {
-  if (!window.confirm('Почати нову гру? Весь прогрес досліджень буде скинуто.')) return;
+  if (!window.confirm(t('game.confirmNewGame'))) return;
   session.newGame();
   plans.rebuildQueues();
 }
@@ -58,31 +60,31 @@ function onNewGame(): void {
 
 <template>
   <section class="game-panel">
-    <h2>Режим гри</h2>
+    <h2>{{ t('game.title') }}</h2>
 
     <template v-if="plans.activePlan">
-      <p class="progress-label">Прогрес плану: {{ done }} / {{ total }} ({{ percent }}%)</p>
+      <p class="progress-label">{{ t('game.progress', { done, total, percent }) }}</p>
       <div class="progress-track">
         <div class="progress-fill" :style="{ width: percent + '%' }"></div>
       </div>
 
-      <h3>Наступні</h3>
+      <h3>{{ t('game.next') }}</h3>
       <ul class="next">
         <li
           v-for="n in nextNodes"
           :key="n.id"
           :class="{ available: isAvailable(n.id) }"
-          title="Клік — відмітити вивченим"
+          :title="t('game.markHint')"
           @click="onMark(n.id)"
         >
           {{ n.name }}
         </li>
       </ul>
-      <p v-if="nextNodes.length === 0" class="hint">Черга порожня — план виконано</p>
+      <p v-if="nextNodes.length === 0" class="hint">{{ t('game.queueDone') }}</p>
     </template>
-    <p v-else class="hint">Немає активного плану</p>
+    <p v-else class="hint">{{ t('game.noActivePlan') }}</p>
 
-    <button class="new-game" @click="onNewGame">Нова гра</button>
+    <button class="new-game" @click="onNewGame">{{ t('game.newGame') }}</button>
   </section>
 </template>
 

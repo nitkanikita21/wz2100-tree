@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import App from './App.vue';
 import IconRenderApp from './IconRenderApp.vue';
+import { i18n } from './i18n';
 import './style.css';
 
 const renderIconMode = new URLSearchParams(window.location.search).has('renderResearchIcon');
@@ -12,4 +13,4 @@ if (renderIconMode) {
 
 const Root = renderIconMode ? IconRenderApp : App;
 
-createApp(Root).use(createPinia()).mount('#app');
+createApp(Root).use(createPinia()).use(i18n).mount('#app');

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { Handle, Position } from '@vue-flow/core';
 import type { ResearchNode } from '../types';
 import { useSessionStore } from '../stores/session';
@@ -8,11 +9,16 @@ import { useUiStore } from '../stores/ui';
 import { useDataStore } from '../stores/data';
 import ResearchIconPreview from './ResearchIconPreview.vue';
 
-const props = defineProps<{
+const props = withDefaults(defineProps<{
   id: string;
   data: { node: ResearchNode };
-}>();
+  /** Render live 3D when zoomed in past the LOD threshold (driven by the parent). */
+  live?: boolean;
+}>(), {
+  live: false,
+});
 
+const { t } = useI18n();
 const session = useSessionStore();
 const plans = usePlansStore();
 const ui = useUiStore();
@@ -25,6 +31,9 @@ const SPRITE_URL = '/generated' + '/research-models-sheet.png';
 const status = computed(() => session.statuses.get(props.id) ?? 'locked');
 const planned = computed(() => plans.plannedSet.has(props.id));
 const selected = computed(() => ui.selectedId === props.id);
+// Live 3D for the selected node always (cheap, single context), otherwise only
+// when the parent says we're zoomed in enough.
+const showLive = computed(() => props.live || selected.value);
 const useSpriteSheet = ref(true);
 const liveReady = ref(false);
 const costBarPercent = computed(() => Math.min(100, Math.floor(props.data.node.cost / 5)));
@@ -66,8 +75,10 @@ watch(() => props.id, () => {
   liveReady.value = false;
 });
 
-watch(selected, () => {
-  liveReady.value = false;
+// When we leave live mode the preview unmounts; reset so re-entering shows the
+// sprite again until the fresh render emits `ready`.
+watch(showLive, (now) => {
+  if (!now) liveReady.value = false;
 });
 </script>
 
@@ -82,7 +93,7 @@ watch(selected, () => {
         alt=""
         @error="useSpriteSheet = false"
       />
-      <div v-if="useSpriteSheet && (!selected || !liveReady)" class="icon node-icon">
+      <div v-if="useSpriteSheet && (!showLive || !liveReady)" class="icon node-icon">
         <div class="model-sprite" :style="spriteStyle"></div>
         <img class="main-icon" :src="`/icons/${data.node.icon}`" alt="" />
         <img
@@ -96,7 +107,7 @@ watch(selected, () => {
         </div>
       </div>
       <ResearchIconPreview
-        v-if="selected"
+        v-if="showLive"
         class="icon live-icon"
         :class="{ ready: liveReady }"
         :node="data.node"
@@ -114,7 +125,7 @@ watch(selected, () => {
     </div>
     <div class="body">
       <div class="name">{{ data.node.name }}</div>
-      <div class="points">{{ data.node.points }} оч. · Ціна {{ data.node.cost }}</div>
+      <div class="points">{{ t('node.pts', { n: data.node.points }) }} · {{ t('node.cost', { n: data.node.cost }) }}</div>
     </div>
     <Handle type="source" :position="Position.Bottom" />
   </div>

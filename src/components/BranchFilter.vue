@@ -1,32 +1,34 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
 import type { Branch } from '../types';
 import { useUiStore } from '../stores/ui';
 
+const { t } = useI18n();
 const ui = useUiStore();
 
-const BRANCHES: { branch: Branch; icon: string; label: string }[] = [
-  { branch: 'weapon', icon: 'image_res_weapontech.png', label: 'Зброя' },
-  { branch: 'defence', icon: 'image_res_defence.png', label: 'Захист' },
-  { branch: 'droid', icon: 'image_res_droidtech.png', label: 'Корпуси й рушії' },
-  { branch: 'cyborg', icon: 'image_res_cyborgtech.png', label: 'Кіборги' },
-  { branch: 'system', icon: 'image_res_systemtech.png', label: 'Системи' },
-  { branch: 'structure', icon: 'image_res_structuretech.png', label: 'Будівлі' },
-  { branch: 'power', icon: 'image_res_powertech.png', label: 'Енергія' },
-  { branch: 'computer', icon: 'image_res_computertech.png', label: 'Компʼютери' },
+const BRANCHES: { branch: Branch; icon: string }[] = [
+  { branch: 'weapon', icon: 'image_res_weapontech.png' },
+  { branch: 'defence', icon: 'image_res_defence.png' },
+  { branch: 'droid', icon: 'image_res_droidtech.png' },
+  { branch: 'cyborg', icon: 'image_res_cyborgtech.png' },
+  { branch: 'system', icon: 'image_res_systemtech.png' },
+  { branch: 'structure', icon: 'image_res_structuretech.png' },
+  { branch: 'power', icon: 'image_res_powertech.png' },
+  { branch: 'computer', icon: 'image_res_computertech.png' },
 ];
 </script>
 
 <template>
   <nav class="branch-filter">
-    <h2 class="heading">Гілки</h2>
+    <h2 class="heading">{{ t('branchFilter.heading') }}</h2>
     <label v-for="b in BRANCHES" :key="b.branch" class="row">
       <input
         type="checkbox"
         :checked="ui.enabledBranches.has(b.branch)"
         @change="ui.toggleBranch(b.branch)"
       />
-      <img class="icon" :src="`/icons/${b.icon}`" :alt="b.label" />
-      <span>{{ b.label }}</span>
+      <img class="icon" :src="`/icons/${b.icon}`" :alt="t('branchFilter.' + b.branch)" />
+      <span>{{ t('branchFilter.' + b.branch) }}</span>
     </label>
   </nav>
 </template>

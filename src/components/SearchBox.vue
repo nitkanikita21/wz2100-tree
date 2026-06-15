@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { searchResearch } from '../lib/search';
 import { useDataStore } from '../stores/data';
 import { useUiStore } from '../stores/ui';
 
+const { t } = useI18n();
 const data = useDataStore();
 const ui = useUiStore();
 
@@ -23,7 +25,7 @@ function pick(id: string): void {
       v-model="query"
       class="input"
       type="text"
-      placeholder="Пошук дослідження…"
+      :placeholder="t('search.placeholder')"
     />
     <ul v-if="results.length > 0" class="dropdown">
       <li v-for="r in results" :key="r.id" class="item" @click="pick(r.id)">
