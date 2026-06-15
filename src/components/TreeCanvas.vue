@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { computed, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { VueFlow, useVueFlow } from '@vue-flow/core';
-import type { Edge, NodeMouseEvent } from '@vue-flow/core';
+import type { Edge, NodeMouseEvent, ViewportTransform } from '@vue-flow/core';
 import ResearchNodeCard from './ResearchNodeCard.vue';
 import { useDataStore } from '../stores/data';
 import { useSessionStore } from '../stores/session';
@@ -12,6 +12,22 @@ const session = useSessionStore();
 const ui = useUiStore();
 
 const { fitView } = useVueFlow();
+
+// Below this zoom the 3D model is too small to make out, so nodes fall back to
+// the static sprite instead of spinning up a live WebGL render (avoids lag when
+// many nodes are on screen). Tune freely — it's just a constant.
+const LIVE_ZOOM_THRESHOLD = 0.67;
+
+// Start below the threshold so the initial paint is sprite-only; `fit-view-on-init`
+// fires `@viewport-change` immediately and sets the real zoom.
+const currentZoom = ref(0);
+// Flips only when crossing the threshold, so cards re-render at the boundary
+// rather than on every zoom tick.
+const showLive = computed(() => currentZoom.value >= LIVE_ZOOM_THRESHOLD);
+
+function onViewportChange(viewport: ViewportTransform): void {
+  currentZoom.value = viewport.zoom;
+}
 
 const edges = computed<Edge[]>(() => {
   const hl = ui.highlightSet;
@@ -66,18 +82,36 @@ watch(
       @pane-click="onPaneClick"
       @node-mouse-enter="onNodeMouseEnter"
       @node-mouse-leave="onNodeMouseLeave"
+      @viewport-change="onViewportChange"
     >
       <template #node-research="nodeProps">
-        <ResearchNodeCard :id="nodeProps.id" :data="nodeProps.data" />
+        <ResearchNodeCard :id="nodeProps.id" :data="nodeProps.data" :live="showLive" />
       </template>
     </VueFlow>
+    <div class="zoom-indicator" aria-live="off">{{ currentZoom.toFixed(2) }}×</div>
   </div>
 </template>
 
 <style scoped>
 .tree-canvas {
+  position: relative;
   width: 100%;
   height: 100%;
   background: var(--bg);
+}
+.zoom-indicator {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 5;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  background: var(--bg-node);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  pointer-events: none;
+  user-select: none;
 }
 </style>

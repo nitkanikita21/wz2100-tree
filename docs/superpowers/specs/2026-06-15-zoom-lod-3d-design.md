@@ -17,17 +17,22 @@ We want the opposite gating to be driven by zoom:
 
 Gate the live preview on the current Vue Flow zoom level.
 
-- In `ResearchNodeCard.vue`, read the reactive viewport via
-  `useVueFlow().viewport` (the card is rendered inside `<VueFlow>`, so it shares
-  the same store instance).
-- Compute `showLive = selected || viewport.zoom >= LIVE_ZOOM_THRESHOLD`.
-- `LIVE_ZOOM_THRESHOLD = 1.5` (Vue Flow `min-zoom` = 0.05, `max-zoom` = 2.0).
-  Defined as a named constant so it is trivial to tune.
+- `TreeCanvas.vue` owns the threshold. It already tracks `currentZoom` (from the
+  `@viewport-change` event, also used by the on-screen zoom indicator) and
+  derives `showLive = currentZoom >= LIVE_ZOOM_THRESHOLD`.
+- `LIVE_ZOOM_THRESHOLD = 0.67` (Vue Flow `min-zoom` = 0.05, `max-zoom` = 2.0).
+  Named constant, trivial to tune.
+- `showLive` is passed to each card as the `:live` prop. Because it is a single
+  boolean that flips only at the threshold boundary, visible cards re-render at
+  the crossing — not on every fractional zoom tick.
+- In `ResearchNodeCard.vue`, `showLive = props.live || selected`. The **selected**
+  node stays live at any zoom (one node, one context — used for inspection).
 - Render `ResearchIconPreview` (live 3D) when `showLive`, otherwise the existing
-  sprite block.
-- Non-selected live nodes render **static** (`rotate` stays tied to
-  `selected || hovered`), so the `requestAnimationFrame` loop in `ModelPreview`
-  renders one frame and stops. Only the selected/hovered node animates.
+  sprite block. Sprite is shown until the live render emits `ready`, then the
+  live layer crossfades in.
+- Non-selected live nodes render **static** (`:rotate="selected"`), so the
+  `requestAnimationFrame` loop in `ModelPreview` renders one frame and stops.
+  Only the selected (and hovered) node animates.
 
 ### Why this is safe for CPU/GPU
 
@@ -39,16 +44,17 @@ Gate the live preview on the current Vue Flow zoom level.
 ### Known constraint (accepted, not solved here)
 
 Each live preview is its own WebGL context (worker + `OffscreenCanvas`).
-Browsers keep ~16 contexts before evicting the oldest. The 1.5 threshold keeps
-the visible-node count low; if eviction flicker shows up in practice we raise
-the threshold (or, as a later step, move to a single shared renderer that draws
-all visible models onto one canvas). Out of scope for this change.
+Browsers keep ~16 contexts before evicting the oldest. The 0.67 threshold is the
+user's chosen feel; if eviction flicker shows up in practice we raise the
+threshold (or, as a later step, move to a single shared renderer that draws all
+visible models onto one canvas). Out of scope for this change.
 
 ## Files touched
 
-- `src/components/ResearchNodeCard.vue` — only file. Add the zoom read, the
-  `showLive` computed + threshold constant, and switch the template condition
-  from `selected` to `showLive` for the live/sprite branches.
+- `src/components/TreeCanvas.vue` — threshold constant, `showLive` computed,
+  pass `:live` to each card. (Already tracks `currentZoom` for the indicator.)
+- `src/components/ResearchNodeCard.vue` — add `live` prop, `showLive` computed,
+  switch the template conditions from `selected` to `showLive`.
 
 ## Out of scope
 
